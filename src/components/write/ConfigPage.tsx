@@ -787,12 +787,6 @@ export function ConfigPage() {
                                                             <span className="badge badge-sm font-mono">{String(index + 1).padStart(2, '0')}</span>
                                                             <span className="flex-1 truncate">{item.name || '未命名歌单'}</span>
                                                             <span className="badge badge-xs badge-ghost font-mono text-xs truncate max-w-[100px]">{item.id || '无ID'}</span>
-                                                            <button
-                                                                className="btn btn-xs btn-ghost btn-square text-error hover:bg-error/10 z-10"
-                                                                onClick={(e) => { e.stopPropagation(); removePlaylistEntry(index) }}
-                                                            >
-                                                                ✕
-                                                            </button>
                                                         </div>
                                                         <div className="collapse-content">
                                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 pb-1">

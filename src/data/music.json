@@ -1,6 +1,22 @@
 {
     "songs": [
         {
+            "title": "STYX HELIX",
+            "artist": "MYTH & ROID",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171350916152",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=413961906&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=413961906&format=lrc&trans=true",
+            "duration": "04:51"
+        },
+        {
+            "title": "Brave Shine",
+            "artist": "Aimer",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168080741423",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=32358691&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=32358691&format=lrc&trans=true",
+            "duration": "03:53"
+        },
+        {
             "title": "最佳损友",
             "artist": "陈奕迅",
             "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171836582062",
@@ -2266,7 +2282,7 @@
         }
     ],
     "playlistCounts": {
-        "17933567326": 48,
+        "17933567326": 50,
         "17956985703": 50,
         "17957187425": 50,
         "17957136689": 48,
@@ -2275,6 +2291,22 @@
     },
     "playlistSongs": {
         "17933567326": [
+            {
+                "title": "STYX HELIX",
+                "artist": "MYTH & ROID",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171350916152",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=413961906&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=413961906&format=lrc&trans=true",
+                "duration": "04:51"
+            },
+            {
+                "title": "Brave Shine",
+                "artist": "Aimer",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168080741423",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=32358691&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=32358691&format=lrc&trans=true",
+                "duration": "03:53"
+            },
             {
                 "title": "最佳损友",
                 "artist": "陈奕迅",

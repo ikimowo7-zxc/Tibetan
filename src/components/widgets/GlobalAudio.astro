@@ -973,7 +973,7 @@ const initialSong = musicList[0] || {};
                      lineHTML += `<div class="text-xs opacity-70 mt-1">${line.translation}</div>`;
                 }
 
-                return `<div class="lyric-line transition-all duration-300 py-2 leading-6 text-neu-text-muted hover:text-neu-text cursor-pointer text-sm font-medium tracking-wide text-center" data-time="${line.time}" data-index="${index}">${lineHTML}</div>`;
+                return `<div class="lyric-line transition-all duration-300 py-2 leading-6 text-neu-text-muted hover:text-neu-text cursor-pointer text-sm font-medium tracking-wide text-center" data-time="${line.time}" data-index="${index}"><div class="lyric-line-inner">${lineHTML}</div></div>`;
             }).join('');
             
             this.lyricsContainer.innerHTML = `<div class="py-[50%] flex flex-col items-center w-full space-y-2">${html}</div>`; 
@@ -1011,16 +1011,16 @@ const initialSong = musicList[0] || {};
                 lines.forEach((line, idx) => {
                     if (idx !== activeIndex) {
                          // Reset classes
-                         line.className = 'lyric-line transition-all duration-500 py-2 leading-6 text-neu-text-muted hover:text-neu-text cursor-pointer text-sm font-medium tracking-wide text-center';
+                        line.className = 'lyric-line transition-all duration-500 py-2 leading-6 text-neu-text-muted hover:text-neu-text cursor-pointer text-sm font-medium tracking-wide text-center';
                          // Reset words in inactive lines
                          const words = line.querySelectorAll('.lyric-word');
-                         words.forEach(w => w.classList.remove('text-neu-accent', 'font-bold'));
+                        words.forEach(w => w.classList.remove('text-neu-accent', 'lyric-word-active'));
                     }
                 });
                 
                 const activeLine = lines[activeIndex];
                 if (activeLine) {
-                    activeLine.className = 'lyric-line transition-all duration-500 py-2 leading-6 cursor-pointer text-sm font-semibold tracking-wide text-neu-text lyric-active text-center';
+                    activeLine.className = 'lyric-line transition-all duration-500 py-2 leading-6 cursor-pointer text-sm font-medium tracking-wide text-neu-text lyric-active text-center';
                     
                     // Manual scroll calculation
                     const containerHeight = this.lyricsContainer.clientHeight;
@@ -1044,10 +1044,10 @@ const initialSong = musicList[0] || {};
                     words.forEach(word => {
                         const wordTime = parseFloat(word.getAttribute('data-time'));
                         if (currentTime >= wordTime) {
-                            word.classList.add('text-neu-accent', 'font-bold');
+                            word.classList.add('text-neu-accent', 'lyric-word-active');
                             word.classList.remove('text-neu-text');
                         } else {
-                            word.classList.remove('text-neu-accent', 'font-bold');
+                            word.classList.remove('text-neu-accent', 'lyric-word-active');
                             word.classList.add('text-neu-text');
                         }
                     });

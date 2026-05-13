@@ -172,7 +172,7 @@ const playlistSongsData = JSON.stringify(playlistSongs);
 
           <div class="relative z-10 flex-1 overflow-hidden min-h-[280px]">
             <!-- Lyrics Container -->
-            <div id="lyrics-container" class="absolute inset-0 overflow-y-auto hide-scrollbar p-6 space-y-6 text-center select-none mask-image-lyrics scroll-smooth">
+            <div id="lyrics-container" class="absolute inset-0 overflow-y-auto hide-scrollbar p-6 space-y-6 text-center select-none mask-image-lyrics">
               <p class="text-neu-text-muted text-sm mt-20">Loading lyrics...</p>
             </div>
             <!-- Playlist Container -->
@@ -275,11 +275,20 @@ const playlistSongsData = JSON.stringify(playlistSongs);
     .lyric-line {
         transform-origin: center center;
     }
+    .lyric-line-inner {
+      transition: transform 300ms ease, color 300ms ease, text-shadow 300ms ease, opacity 300ms ease;
+      transform-origin: center center;
+    }
+    .lyric-active .lyric-line-inner {
+      transform: scale(1.06);
+    }
     .lyric-active {
         color: oklch(var(--p)) !important;
-        transform: scale(1.05);
         opacity: 1 !important;
         text-shadow: 0 0 20px oklch(var(--p) / 0.6);
+    }
+    .lyric-word-active {
+      text-shadow: 0 0 12px oklch(var(--p) / 0.45);
     }
   </style>
 </div>

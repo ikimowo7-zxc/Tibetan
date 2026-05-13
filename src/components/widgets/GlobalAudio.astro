@@ -78,7 +78,7 @@ const initialSong = musicList[0] || {};
             this.isDraggingVolume = false;
             this.playlistCounts = {};
             this.playlistSongs = {};
-            this.activePlaylistId = null;
+            this.activePlaylistId = 'all';
 
             // Initial binding
             this.handlePageLoad();
@@ -426,7 +426,7 @@ const initialSong = musicList[0] || {};
                 const isTarget = e.dataset.playlistId === playlistId;
                 if (isTarget) {
                     e.classList.add('playlist-active', 'border-0');
-                    e.classList.remove('border', 'border-transparent');
+                    e.classList.remove('border', 'border-transparent', 'hover:bg-black/5', 'dark:hover:bg-white/5', 'hover:border-neu-border/50');
                     e.style.backgroundColor = `oklch(${activeColor} / 0.15)`;
                     e.style.color = '';
                     const svg = e.querySelector('svg');
@@ -443,7 +443,7 @@ const initialSong = musicList[0] || {};
                     }
                 } else {
                     e.classList.remove('playlist-active', 'border-0');
-                    e.classList.add('border', 'border-transparent');
+                    e.classList.add('border', 'border-transparent', 'hover:bg-black/5', 'dark:hover:bg-white/5', 'hover:border-neu-border/50');
                     e.style.backgroundColor = '';
                     e.style.color = '';
                     const svg = e.querySelector('svg');

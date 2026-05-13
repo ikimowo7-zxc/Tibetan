@@ -4,7 +4,14 @@ import MusicPlayer from "@/components/widgets/MusicPlayer.astro";
 import { musicList, playlistCounts, playlistSongs } from "@/data/music";
 import { MUSIC_CONFIG } from "@/config";
 
-const playlists = MUSIC_CONFIG?.playlists || [];
+const basePlaylists = MUSIC_CONFIG?.playlists || [];
+const playlists = [
+  { id: "all", name: "全部音乐" },
+  ...basePlaylists
+];
+
+const counts = { ...playlistCounts, "all": musicList.length };
+const songs = { ...playlistSongs, "all": musicList };
 ---
 
 <BaseLayout title="音乐" showSidebar={true} showTOC={false} isIndexed={false}>
@@ -12,8 +19,8 @@ const playlists = MUSIC_CONFIG?.playlists || [];
     <MusicPlayer
       list={musicList}
       playlists={playlists}
-      playlistCounts={playlistCounts}
-      playlistSongs={playlistSongs}
+      playlistCounts={counts}
+      playlistSongs={songs}
     />
   </div>
 </BaseLayout>

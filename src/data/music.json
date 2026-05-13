@@ -1,12 +1,12 @@
 {
     "songs": [
         {
-            "title": "渡口",
-            "artist": "蔡琴",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167871247765",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=211277&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=211277&format=lrc&trans=true",
-            "duration": "03:47"
+            "title": "最佳损友",
+            "artist": "陈奕迅",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171836582062",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=65800&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=65800&format=lrc&trans=true",
+            "duration": "03:53"
         },
         {
             "title": "We Are The World",
@@ -2276,12 +2276,12 @@
     "playlistSongs": {
         "17933567326": [
             {
-                "title": "渡口",
-                "artist": "蔡琴",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167871247765",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=211277&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=211277&format=lrc&trans=true",
-                "duration": "03:47"
+                "title": "最佳损友",
+                "artist": "陈奕迅",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171836582062",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=65800&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=65800&format=lrc&trans=true",
+                "duration": "03:53"
             },
             {
                 "title": "We Are The World",

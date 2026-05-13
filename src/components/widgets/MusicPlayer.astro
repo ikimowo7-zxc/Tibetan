@@ -276,11 +276,12 @@ const playlistSongsData = JSON.stringify(playlistSongs);
         transform-origin: center center;
     }
     .lyric-line-inner {
-      transition: transform 300ms ease, color 300ms ease, text-shadow 300ms ease, opacity 300ms ease;
+      transition: transform 150ms ease, color 150ms ease, text-shadow 150ms ease, opacity 150ms ease;
       transform-origin: center center;
+      will-change: transform, color, text-shadow, opacity;
     }
     .lyric-active .lyric-line-inner {
-      transform: scale(1.06);
+      transform: scale(1.12);
     }
     .lyric-active {
         color: oklch(var(--p)) !important;

@@ -319,54 +319,68 @@ export default function NavEditPage({ initialNavData = [] }: Props) {
     const { _catIndex: ci, _itemIndex: ii } = item
     const displayAvatar = getDisplayAvatar(item, ci, ii)
 
-    return (
-      <div key={`${ci}-${ii}`} className="relative h-full bg-base-100 rounded-[2rem] overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-base-200 hover:border-primary/20">
-        <div className="p-6 flex flex-col h-full">
-          {globalEditMode && (
-            <div className="flex justify-end gap-2 mb-3">
-              {ii > 0 && (
-                <button onClick={() => moveItemUp(ci, ii)} className="btn btn-sm btn-ghost text-primary/50 hover:text-primary hover:bg-primary/10 rounded-lg px-2" title="上移">{svg.arrowUp}</button>
-              )}
-              {ii < navData[ci].items.length - 1 && (
-                <button onClick={() => moveItemDown(ci, ii)} className="btn btn-sm btn-ghost text-primary/50 hover:text-primary hover:bg-primary/10 rounded-lg px-2" title="下移">{svg.arrowDown}</button>
-              )}
-              <button onClick={() => openEditPage(ci, ii)} className="btn btn-sm btn-ghost text-primary hover:bg-primary/10 rounded-lg px-2" title="编辑">{svg.edit}</button>
-              <button onClick={() => removeItem(ci, ii)} className="btn btn-sm btn-ghost text-error hover:bg-error/10 rounded-lg px-2" title="删除">{svg.trash}</button>
-            </div>
-          )}
-
-          <div className="flex items-start gap-4 mb-4">
-            <div className="relative shrink-0 w-12 h-12 rounded-2xl overflow-hidden bg-base-100 shadow-sm ring-1 ring-base-200">
-              {displayAvatar ? <img src={displayAvatar} alt={item.name} className="w-full h-full object-cover rounded-xl" /> : <div className="flex items-center justify-center w-full h-full bg-base-200 text-base-content/40 text-lg font-bold">{item.name ? item.name.charAt(0) : '?'}</div>}
-            </div>
-            <div className="flex-1 min-w-0">
-              <h3 className="font-bold text-lg text-base-content truncate">{item.name}</h3>
-              <div className="text-xs text-base-content/40 truncate font-mono mt-0.5">{getHostname(item.url)}</div>
-            </div>
+    const cardContent = (
+      <div className="p-6 flex flex-col h-full">
+        {globalEditMode && (
+          <div className="flex justify-end gap-2 mb-3">
+            {ii > 0 && (
+              <button onClick={(e) => { e.stopPropagation(); moveItemUp(ci, ii); }} className="btn btn-sm btn-ghost text-primary/50 hover:text-primary hover:bg-primary/10 rounded-lg px-2" title="上移">{svg.arrowUp}</button>
+            )}
+            {ii < navData[ci].items.length - 1 && (
+              <button onClick={(e) => { e.stopPropagation(); moveItemDown(ci, ii); }} className="btn btn-sm btn-ghost text-primary/50 hover:text-primary hover:bg-primary/10 rounded-lg px-2" title="下移">{svg.arrowDown}</button>
+            )}
+            <button onClick={(e) => { e.stopPropagation(); openEditPage(ci, ii); }} className="btn btn-sm btn-ghost text-primary hover:bg-primary/10 rounded-lg px-2" title="编辑">{svg.edit}</button>
+            <button onClick={(e) => { e.stopPropagation(); removeItem(ci, ii); }} className="btn btn-sm btn-ghost text-error hover:bg-error/10 rounded-lg px-2" title="删除">{svg.trash}</button>
           </div>
+        )}
 
-          {item.badge && (() => {
-            const hex = resolveBadgeHex(item.badgeColor)
-            const iconUrl = getIconifySvgUrl(item.badgeIcon, hex)
-            return (
-              <div className="flex items-center gap-3 mb-3">
-                <span
-                  className="inline-flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded-lg border"
-                  style={{ backgroundColor: `${hex}18`, borderColor: `${hex}30`, color: hex }}
-                >
-                  {iconUrl && (
-                    <object data={iconUrl} type="image/svg+xml" className="w-3.5 h-3.5 pointer-events-none" aria-label={item.badgeIcon}>
-                      <span className="w-3.5 h-3.5" />
-                    </object>
-                  )}
-                  {item.badge}
-                </span>
-              </div>
-            )
-          })()}
-
-          <p className="text-sm text-base-content/70 leading-relaxed line-clamp-3 flex-grow">{item.description}</p>
+        <div className="flex items-start gap-4 mb-4">
+          <div className="relative shrink-0 w-12 h-12 rounded-2xl overflow-hidden bg-base-100 shadow-sm ring-1 ring-base-200">
+            {displayAvatar ? <img src={displayAvatar} alt={item.name} className="w-full h-full object-cover rounded-xl" /> : <div className="flex items-center justify-center w-full h-full bg-base-200 text-base-content/40 text-lg font-bold">{item.name ? item.name.charAt(0) : '?'}</div>}
+          </div>
+          <div className="flex-1 min-w-0">
+            <h3 className="font-bold text-lg text-base-content truncate">{item.name}</h3>
+            <div className="text-xs text-base-content/40 truncate font-mono mt-0.5">{getHostname(item.url)}</div>
+          </div>
         </div>
+
+        {item.badge && (() => {
+          const hex = resolveBadgeHex(item.badgeColor)
+          const iconUrl = getIconifySvgUrl(item.badgeIcon, hex)
+          return (
+            <div className="flex items-center gap-3 mb-3">
+              <span
+                className="inline-flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded-lg border"
+                style={{ backgroundColor: `${hex}18`, borderColor: `${hex}30`, color: hex }}
+              >
+                {iconUrl && (
+                  <object data={iconUrl} type="image/svg+xml" className="w-3.5 h-3.5 pointer-events-none" aria-label={item.badgeIcon}>
+                    <span className="w-3.5 h-3.5" />
+                  </object>
+                )}
+                {item.badge}
+              </span>
+            </div>
+          )
+        })()}
+
+        <p className="text-sm text-base-content/70 leading-relaxed line-clamp-3 flex-grow">{item.description}</p>
+      </div>
+    )
+
+    return (
+      <div key={`${ci}-${ii}`} className="relative h-full">
+        {globalEditMode ? (
+          <div className="h-full bg-base-100 rounded-[2rem] overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-base-200 hover:border-primary/20">
+            {cardContent}
+          </div>
+        ) : (
+          <a href={item.url} target="_blank" rel="noopener noreferrer" className="group block h-full">
+            <div className="h-full bg-base-100 rounded-[2rem] overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-base-200 hover:border-primary/20">
+              {cardContent}
+            </div>
+          </a>
+        )}
       </div>
     )
   }

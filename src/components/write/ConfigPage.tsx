@@ -59,6 +59,9 @@ export function ConfigPage() {
     // 缓存待上传图片 { [targetKey]: { file, previewUrl } }
     const [pendingImages, setPendingImages] = useState<Record<string, { file: File, previewUrl: string }>>({})
 
+    // 歌单选中状态 - 用于歌单连续上下移动
+    const [selectedPlaylistId, setSelectedPlaylistId] = useState<string | null>(null)
+
     useEffect(() => {
         loadConfig()
     }, [isAuth])
@@ -253,12 +256,14 @@ export function ConfigPage() {
     // --- Playlist CRUD (歌单列表管理 - 管理歌单ID和名称) ---
     const addPlaylistEntry = () => {
         const playlists = [...(parsedConfig?.music?.playlists || [])]
+        const newId = `playlist_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
         playlists.push({
-            id: '',
+            id: newId,
             name: '',
             server: 'netease'
         })
         updateConfigValue('music.playlists', playlists)
+        setSelectedPlaylistId(newId)
         toast.success('已添加歌单条目')
     }
 
@@ -277,14 +282,22 @@ export function ConfigPage() {
         updateConfigValue('music.playlists', playlists)
     }
 
-    const movePlaylistEntry = (index: number, direction: 'up' | 'down') => {
+    const movePlaylistEntry = (playlistId: string, direction: 'up' | 'down') => {
         const playlists = [...(parsedConfig?.music?.playlists || [])]
-        if (direction === 'up' && index > 0) {
-            [playlists[index], playlists[index - 1]] = [playlists[index - 1], playlists[index]]
-        } else if (direction === 'down' && index < playlists.length - 1) {
-            [playlists[index], playlists[index + 1]] = [playlists[index + 1], playlists[index]]
-        }
+        const currentIndex = playlists.findIndex(p => p.id === playlistId)
+        if (currentIndex === -1) return
+
+        const newIndex = direction === 'up' ? currentIndex - 1 : currentIndex + 1
+        if (newIndex < 0 || newIndex >= playlists.length) return
+
+        [playlists[currentIndex], playlists[newIndex]] = [playlists[newIndex], playlists[currentIndex]]
         updateConfigValue('music.playlists', playlists)
+    }
+
+    const moveSelectedPlaylist = (direction: 'up' | 'down') => {
+        if (selectedPlaylistId) {
+            movePlaylistEntry(selectedPlaylistId, direction)
+        }
     }
     // --- End Playlist CRUD ---
 
@@ -870,41 +883,62 @@ export function ConfigPage() {
                                                 <span className="text-xs text-base-content/50 ml-auto">{(parsedConfig?.music?.playlists || []).length} 个歌单</span>
                                             </div>
 
+                                            {selectedPlaylistId && (
+                                                <div className="flex items-center gap-2 p-3 bg-primary/10 rounded-xl border border-primary/20">
+                                                    <span className="text-xs text-primary font-medium">
+                                                        已选择: {parsedConfig?.music?.playlists?.find((p: any) => p.id === selectedPlaylistId)?.name || selectedPlaylistId}
+                                                    </span>
+                                                    <div className="flex-1"></div>
+                                                    <button onClick={() => moveSelectedPlaylist('up')} className="btn btn-xs btn-primary">↑ 上移</button>
+                                                    <button onClick={() => moveSelectedPlaylist('down')} className="btn btn-xs btn-primary">↓ 下移</button>
+                                                    <button onClick={() => setSelectedPlaylistId(null)} className="btn btn-xs btn-ghost">取消</button>
+                                                </div>
+                                            )}
+
                                             <div className="space-y-2">
-                                                {(parsedConfig?.music?.playlists || []).map((item: any, index: number) => (
-                                                    <div key={index} className="collapse collapse-arrow bg-base-200/50 rounded-xl border border-base-300">
-                                                        <input type="checkbox" className="peer" />
-                                                        <div className="collapse-title text-sm font-medium flex items-center gap-3 pr-10 min-h-0 py-3">
-                                                            <span className="badge badge-sm font-mono">{String(index + 1).padStart(2, '0')}</span>
-                                                            <span className="flex-1 truncate">{item.name || '未命名歌单'}</span>
-                                                            <span className="badge badge-xs badge-ghost font-mono text-xs truncate max-w-[100px]">{item.id || '无ID'}</span>
-                                                        </div>
-                                                        <div className="collapse-content">
-                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 pb-1">
-                                                                <div className="form-control w-full">
-                                                                    <label className="label py-0.5"><span className="label-text text-xs text-base-content/60">歌单名称</span></label>
-                                                                    <input type="text" className="input input-sm input-bordered w-full bg-base-100 focus:border-primary"
-                                                                        placeholder="例如: 我的最爱"
-                                                                        value={item.name || ''}
-                                                                        onChange={e => updatePlaylistEntry(index, 'name', e.target.value)} />
+                                                {(parsedConfig?.music?.playlists || []).map((item: any, index: number) => {
+                                                    const isSelected = selectedPlaylistId === item.id
+                                                    return (
+                                                        <div
+                                                            key={item.id || index}
+                                                            onClick={() => setSelectedPlaylistId(item.id || null)}
+                                                            className={`collapse collapse-arrow bg-base-200/50 rounded-xl border cursor-pointer transition-all ${isSelected ? 'border-primary/50 bg-primary/5' : 'border-base-300 hover:border-primary/30'}`}
+                                                        >
+                                                            <input
+                                                                type="checkbox"
+                                                                checked={isSelected}
+                                                                onChange={() => setSelectedPlaylistId(item.id || null)}
+                                                                className="peer"
+                                                            />
+                                                            <div className="collapse-title text-sm font-medium flex items-center gap-3 pr-10 min-h-0 py-3">
+                                                                <span className={`badge badge-sm font-mono ${isSelected ? 'badge-primary' : ''}`}>{String(index + 1).padStart(2, '0')}</span>
+                                                                <span className="flex-1 truncate">{item.name || '未命名歌单'}</span>
+                                                                <span className="badge badge-xs badge-ghost font-mono text-xs truncate max-w-[100px]">{item.id || '无ID'}</span>
+                                                            </div>
+                                                            <div className="collapse-content">
+                                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 pb-1">
+                                                                    <div className="form-control w-full">
+                                                                        <label className="label py-0.5"><span className="label-text text-xs text-base-content/60">歌单名称</span></label>
+                                                                        <input type="text" className="input input-sm input-bordered w-full bg-base-100 focus:border-primary"
+                                                                            placeholder="例如: 我的最爱"
+                                                                            value={item.name || ''}
+                                                                            onChange={e => updatePlaylistEntry(index, 'name', e.target.value)} />
+                                                                    </div>
+                                                                    <div className="form-control w-full">
+                                                                        <label className="label py-0.5"><span className="label-text text-xs text-base-content/60">网易云歌单 ID</span></label>
+                                                                        <input type="text" className="input input-sm input-bordered w-full bg-base-100 focus:border-primary font-mono text-xs"
+                                                                            placeholder="例如: 17957187425"
+                                                                            value={item.id || ''}
+                                                                            onChange={e => updatePlaylistEntry(index, 'id', e.target.value)} />
+                                                                    </div>
                                                                 </div>
-                                                                <div className="form-control w-full">
-                                                                    <label className="label py-0.5"><span className="label-text text-xs text-base-content/60">网易云歌单 ID</span></label>
-                                                                    <input type="text" className="input input-sm input-bordered w-full bg-base-100 focus:border-primary font-mono text-xs"
-                                                                        placeholder="例如: 17957187425"
-                                                                        value={item.id || ''}
-                                                                        onChange={e => updatePlaylistEntry(index, 'id', e.target.value)} />
+                                                                <div className="flex items-center gap-2 mt-3 pt-2 border-t border-base-300">
+                                                                    <button onClick={() => removePlaylistEntry(index)} className="btn btn-xs btn-outline btn-error">删除</button>
                                                                 </div>
                                                             </div>
-                                                            <div className="flex items-center gap-2 mt-3 pt-2 border-t border-base-300">
-                                                                <button onClick={() => movePlaylistEntry(index, 'up')} className="btn btn-xs btn-ghost" disabled={index === 0}>↑ 上移</button>
-                                                                <button onClick={() => movePlaylistEntry(index, 'down')} className="btn btn-xs btn-ghost" disabled={index === (parsedConfig?.music?.playlists?.length || 0) - 1}>↓ 下移</button>
-                                                                <div className="flex-1"></div>
-                                                                <button onClick={() => removePlaylistEntry(index)} className="btn btn-xs btn-outline btn-error">删除</button>
-                                                            </div>
                                                         </div>
-                                                    </div>
-                                                ))}
+                                                    )
+                                                })}
                                             </div>
                                             <button onClick={addPlaylistEntry} className="btn btn-outline btn-sm w-full border-dashed border-2 text-base-content/50 hover:text-accent hover:border-accent hover:bg-accent/5">
                                                 + 添加歌单

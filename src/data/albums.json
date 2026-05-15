@@ -1,0 +1,27 @@
+[
+  {
+    "date": "2024-07-15",
+    "event": "夏日旅行",
+    "title": "青岛海滨",
+    "description": "海风轻拂，浪花拍岸，享受美好的夏日时光。",
+    "icon": "🌊",
+    "photos": [
+      { "src": "/image/image1.jpg", "variant": "4x5", "title": "海边日落", "description": "夕阳西下，金色的阳光洒在海面上。" },
+      { "src": "/image/image2.jpg", "variant": "4x5", "title": "沙滩漫步", "description": "赤脚走在细软的沙滩上。" },
+      { "src": "/image/image3.png", "variant": "1x1", "title": "海鲜大餐", "description": "新鲜的海鲜，美味无比。" },
+      { "src": "/image/image4.jpg", "variant": "4x3", "title": "灯塔远眺", "description": "古老的灯塔，守护着这片海域。" }
+    ]
+  },
+  {
+    "date": "2024-05-20",
+    "event": "城市漫步",
+    "title": "上海外滩",
+    "description": "霓虹闪烁，灯火辉煌，感受魔都的魅力。",
+    "icon": "🌃",
+    "photos": [
+      { "src": "/image/image5.webp", "variant": "4x5", "title": "外滩夜景", "description": "东方明珠闪耀夜空。" },
+      { "src": "/image/image1.jpg", "variant": "1x1", "title": "陆家嘴天际线", "description": "现代化的摩天大楼群。" },
+      { "src": "/image/image2.jpg", "variant": "4x3", "title": "黄浦江游船", "description": "夜晚乘船游览黄浦江。" }
+    ]
+  }
+]

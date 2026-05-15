@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+import PhotoWallGrid from "@components/admin/PhotoWallGrid";
+import PhotoWallToolbar from "@components/admin/PhotoWallToolbar";
+import AlbumAdmin from "@components/admin/AlbumAdmin";
+import { albums } from "../data/albums";
+
+const event = Astro.url.searchParams.get("event") || "";
+const album = albums.find((a) => a.event === event);
+---
+
+<BaseLayout title={album ? `${album.event} - 照片墙` : "照片墙"} description={album?.description}>
+  <div class="mb-10 animate-fade-in-up">
+    <div class="flex items-center justify-between mb-4">
+      <h1 class="text-3xl md:text-4xl font-bold flex items-center gap-3">
+        <Icon name="lucide:camera" class="text-primary" />
+        <span>{album ? album.event : (event || "照片墙")}</span>
+      </h1>
+      <PhotoWallToolbar client:only="react" event={event} />
+    </div>
+
+    {album?.description && (
+      <p class="text-base-content/70 text-lg mb-6">
+        {album.description}
+      </p>
+    )}
+
+    <PhotoWallGrid client:only="react" initialAlbum={album ?? null} event={event} />
+  </div>
+
+  <div class="divider my-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+    <Icon name="lucide:heart" class="w-12 h-12 text-primary/50" />
+  </div>
+
+  <div class="mt-8 flex justify-center">
+    <a href="/album" class="px-6 py-2 bg-base-200 hover:bg-base-300 rounded-full text-sm font-medium transition-colors">
+      ← 返回相册集
+    </a>
+  </div>
+</BaseLayout>
+
+<AlbumAdmin client:only="react" />

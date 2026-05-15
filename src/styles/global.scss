@@ -936,3 +936,24 @@ code {
 }
 @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .animate-spin-slow { animation: spin-slow 8s linear infinite; }
+
+/* Polaroid styles */
+.shadow-polaroid {
+  box-shadow: 
+    0px 0px 0px 1px rgba(0,0,0,0.08),
+    0px 2px 2px -1px rgba(0,0,0,0.1),
+    0px 4px 4px -2px rgba(0,0,0,0.08),
+    0px 8px 8px -4px rgba(0,0,0,0.06),
+    0px 16px 16px -8px rgba(0,0,0,0.04),
+    0px 32px 32px -16px rgba(0,0,0,0.02);
+}
+
+.shadow-polaroid-hover {
+  box-shadow: 
+    0px 0px 0px 1px rgba(0,0,0,0.12),
+    0px 4px 4px -2px rgba(0,0,0,0.15),
+    0px 8px 8px -4px rgba(0,0,0,0.12),
+    0px 16px 16px -8px rgba(0,0,0,0.08),
+    0px 32px 32px -16px rgba(0,0,0,0.06),
+    0px 64px 64px -32px rgba(0,0,0,0.04);
+}

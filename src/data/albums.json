@@ -63,5 +63,13 @@
         "title": "2"
       }
     ]
+  },
+  {
+    "date": "2026-05-15",
+    "event": "新相册",
+    "title": "",
+    "description": "",
+    "icon": "📷",
+    "photos": []
   }
 ]

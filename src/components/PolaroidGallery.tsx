@@ -1,6 +1,7 @@
 "use client";
 
 import Polaroid, { type polaroidVariants } from "./Polaroid";
+import { navigate } from "astro:transitions/client";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
@@ -28,7 +29,7 @@ const PolaroidGallery = ({ images, event }: PolaroidGalleryProps) => {
   }, []);
 
   const handleClick = () => {
-    window.location.href = `/photo-wall/${event}`;
+    navigate(`/photo-wall/${event}`);
   };
 
   const cardWidth = 128;

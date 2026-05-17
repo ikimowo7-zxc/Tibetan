@@ -38,18 +38,19 @@ import { USER_NAME, USER_SITE, USER_FOOTER_SOCIAL_ICONS, SITE_ICP, SITE_ICP_LINK
     {
       USER_FOOTER_SOCIAL_ICONS.map((icon) => {
         let href = icon.href;
-        if (
-          (icon.svg.includes('mail') ||
-            (icon.svg.includes('at-line') && !icon.svg.includes('wechat'))) &&
-          !href.startsWith('mailto:')
-        ) {
+        const isMail = (icon.svg.includes('mail') || (icon.svg.includes('at-line') && !icon.svg.includes('wechat')));
+        const isQQ = icon.svg.includes('qq') && /^\d+$/.test(href);
+
+        if (isMail && !href.startsWith('mailto:')) {
           href = `mailto:${href}`;
-        } else if (icon.svg.includes('qq') && /^\d+$/.test(href)) {
+        } else if (isQQ) {
           href = `tencent://message/?uin=${href}&Site=&Menu=yes`;
+        } else if (!isMail && !isQQ && href && !href.startsWith('http')) {
+          href = `https://${href}`;
         }
         return (
           <div class="tooltip" data-tip={icon.title}>
-            <a href={href} aria-label={icon.ariaLabel}>
+            <a href={href} aria-label={icon.ariaLabel} target="_blank" rel="noopener noreferrer">
               <Icon name={icon.svg} class="text-xl md:text-xl" />
             </a>
           </div>
@@ -78,4 +79,4 @@ import { USER_NAME, USER_SITE, USER_FOOTER_SOCIAL_ICONS, SITE_ICP, SITE_ICP_LINK
     </div>
   )}
 </nav>
-</footer>
+</footer

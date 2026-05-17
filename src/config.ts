@@ -55,6 +55,8 @@ export const USER_NAME = config.user.name;
 export const USER_DESCRIPTION = config.user.description;
 export const USER_SITE = config.user.site;
 export const USER_AVATAR = config.user.avatar;
+export const USER_QR_WECHAT = config.user.qr_wechat || '/WeChat.jpg';
+export const USER_QR_ALIPAY = config.user.qr_alipay || '/Alipay.jpg';
 
 // 社交图标配置（侧边栏和页脚）
 export const USER_SIDEBAR_SOCIAL_ICONS = config.user.sidebar.social;

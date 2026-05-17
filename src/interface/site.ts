@@ -134,6 +134,8 @@ export interface UserConfig {
   footer: {
     social: SocialIcon[];
   };
+  qr_wechat?: string;
+  qr_alipay?: string;
 }
 
 export interface TranslationLabel {

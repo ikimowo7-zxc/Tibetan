@@ -186,6 +186,12 @@ export function ConfigPage() {
                 }
             }
 
+            // 在 dev 模式下使用服务端注入的配置
+            if (!content && (window as any).__SERVER_CONFIG__) {
+                content = (window as any).__SERVER_CONFIG__
+                console.log('Loaded config from server injection')
+            }
+
             if (content) {
                 if (isDirty) {
                     toast.info('检测到本地未保存更改，已跳过远程配置覆盖')
@@ -210,8 +216,8 @@ export function ConfigPage() {
                 setLastFetchedContent(content)
             }
 
-            // 同时加载 music.json
-            await loadMusicData()
+            // 后台静默加载 music.json（不阻塞页面渲染）
+            loadMusicData().catch(console.error)
         } catch (error: any) {
             toast.error('加载配置失败: ' + error.message)
         } finally {
@@ -305,6 +311,51 @@ export function ConfigPage() {
             [social[index], social[index + 1]] = [social[index + 1], social[index]]
         }
         updateConfigValue('user.sidebar.social', social)
+    }
+
+    // --- Footer Social Button Handlers ---
+    const handleFooterSocialChange = (index: number, field: string, value: any) => {
+        const social = [...(parsedConfig?.user?.footer?.social || [])]
+        if (!social[index]) social[index] = {}
+        social[index][field] = value
+
+        // Auto-set title/ariaLabel when icon changes
+        if (field === 'svg') {
+            const preset = SOCIAL_PRESETS.find(p => p.value === value)
+            if (preset) {
+                social[index].title = preset.label
+                social[index].ariaLabel = preset.label
+            }
+        }
+
+        updateConfigValue('user.footer.social', social)
+    }
+
+    const addFooterSocial = () => {
+        const social = [...(parsedConfig?.user?.footer?.social || [])]
+        social.push({
+            href: '',
+            title: 'New Link',
+            ariaLabel: 'New Link',
+            svg: 'ri:link'
+        })
+        updateConfigValue('user.footer.social', social)
+    }
+
+    const removeFooterSocial = (index: number) => {
+        const social = [...(parsedConfig?.user?.footer?.social || [])]
+        social.splice(index, 1)
+        updateConfigValue('user.footer.social', social)
+    }
+
+    const moveFooterSocial = (index: number, direction: 'up' | 'down') => {
+        const social = [...(parsedConfig?.user?.footer?.social || [])]
+        if (direction === 'up' && index > 0) {
+            [social[index], social[index - 1]] = [social[index - 1], social[index]]
+        } else if (direction === 'down' && index < social.length - 1) {
+            [social[index], social[index + 1]] = [social[index + 1], social[index]]
+        }
+        updateConfigValue('user.footer.social', social)
     }
 
     // --- Playlist CRUD (歌单列表管理 - 管理歌单ID和名称) ---
@@ -512,6 +563,14 @@ export function ConfigPage() {
                         path = 'public/logo.png'
                         filename = 'logo.png'
                         publicPath = '/logo.png'
+                    } else if (target === 'user.qr_wechat') {
+                        path = 'public/WeChat.jpg'
+                        filename = 'WeChat.jpg'
+                        publicPath = '/WeChat.jpg'
+                    } else if (target === 'user.qr_alipay') {
+                        path = 'public/Alipay.jpg'
+                        filename = 'Alipay.jpg'
+                        publicPath = '/Alipay.jpg'
                     } else {
                         // 不处理其他图片类型
                         continue
@@ -830,6 +889,53 @@ export function ConfigPage() {
 
                                 </div>
 
+                                {/* Reward QR Codes */}
+                                <div className="space-y-3 mt-6">
+                                    <div className="text-xs font-medium text-base-content/70 ml-1">打赏二维码</div>
+                                    <div className="grid grid-cols-2 gap-4 md:gap-12">
+                                        <div className="space-y-3">
+                                            <div className="text-xs text-base-content/50 ml-1">微信赞赏码</div>
+                                            <div className="group relative flex justify-center p-4 md:p-8 bg-base-100 rounded-2xl md:rounded-3xl border border-base-200 shadow-sm hover:shadow-md transition-all duration-300">
+                                                <div className="w-24 h-24 md:w-32 md:h-32 rounded-xl md:rounded-2xl overflow-hidden bg-base-200 ring-4 ring-base-100 shadow-xl group-hover:scale-105 transition-transform duration-300">
+                                                    <img src={parsedConfig?.user?.qr_wechat || '/WeChat.jpg'} alt="微信赞赏码" className="w-full h-full object-cover" />
+                                                </div>
+                                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-base-100/50 backdrop-blur-sm rounded-2xl md:rounded-3xl cursor-pointer" onClick={() => triggerImageUpload('user.qr_wechat')}>
+                                                    <button className="btn btn-circle btn-primary shadow-lg scale-90 group-hover:scale-100 transition-transform">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" x2="12" y1="3" y2="15" /></svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <input
+                                                type="text"
+                                                className="input input-sm input-bordered w-full text-center text-xs rounded-full bg-base-100 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/20"
+                                                value={parsedConfig?.user?.qr_wechat || ''}
+                                                onChange={e => updateConfigValue('user.qr_wechat', e.target.value)}
+                                                placeholder="微信赞赏码 URL 或上传图片"
+                                            />
+                                        </div>
+                                        <div className="space-y-3">
+                                            <div className="text-xs text-base-content/50 ml-1">支付宝收款码</div>
+                                            <div className="group relative flex justify-center p-4 md:p-8 bg-base-100 rounded-2xl md:rounded-3xl border border-base-200 shadow-sm hover:shadow-md transition-all duration-300">
+                                                <div className="w-24 h-24 md:w-32 md:h-32 rounded-xl md:rounded-2xl overflow-hidden bg-base-200 ring-4 ring-base-100 shadow-xl group-hover:scale-105 transition-transform duration-300">
+                                                    <img src={parsedConfig?.user?.qr_alipay || '/Alipay.jpg'} alt="支付宝收款码" className="w-full h-full object-cover" />
+                                                </div>
+                                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-base-100/50 backdrop-blur-sm rounded-2xl md:rounded-3xl cursor-pointer" onClick={() => triggerImageUpload('user.qr_alipay')}>
+                                                    <button className="btn btn-circle btn-primary shadow-lg scale-90 group-hover:scale-100 transition-transform">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" x2="12" y1="3" y2="15" /></svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <input
+                                                type="text"
+                                                className="input input-sm input-bordered w-full text-center text-xs rounded-full bg-base-100 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/20"
+                                                value={parsedConfig?.user?.qr_alipay || ''}
+                                                onChange={e => updateConfigValue('user.qr_alipay', e.target.value)}
+                                                placeholder="支付宝收款码 URL 或上传图片"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
                                 {/* User Info */}
                                 <div className="card bg-base-100 shadow-sm border border-base-200 p-6 rounded-2xl space-y-6">
                                     <h3 className="font-bold text-lg text-primary border-b border-base-200 pb-2">用户信息</h3>
@@ -899,6 +1005,51 @@ export function ConfigPage() {
                                         </div>
                                     </div>
 
+                                </div>
+
+                                {/* Footer Social Buttons */}
+                                <div className="space-y-4 mt-6">
+                                    <div className="text-sm font-medium text-base-content/70 ml-1">页脚社交按钮</div>
+                                    <div className="card bg-base-100 shadow-sm border border-base-200 p-2 rounded-2xl">
+                                        <div className="space-y-2 p-2">
+                                            {(parsedConfig?.user?.footer?.social || []).map((item: any, index: number) => (
+                                                <div key={index} className="flex items-center gap-3 group p-2 hover:bg-base-200/50 rounded-xl transition-colors">
+                                                    <div className="w-32">
+                                                        <CustomSelect
+                                                            value={SOCIAL_PRESETS.find(p => p.value === item.svg)?.value || 'ri:link'}
+                                                            onChange={val => handleFooterSocialChange(index, 'svg', val)}
+                                                            options={SOCIAL_PRESETS}
+                                                        />
+                                                    </div>
+
+                                                    <input
+                                                        type="text"
+                                                        className="input input-sm input-bordered flex-1 bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                                        placeholder="链接地址"
+                                                        value={item.href}
+                                                        onChange={e => handleFooterSocialChange(index, 'href', e.target.value)}
+                                                    />
+
+                                                    <div className="join bg-base-200 rounded-lg p-1">
+                                                        <div className="w-8 h-6 flex items-center justify-center text-xs font-mono text-base-content/50">
+                                                            {index + 1}
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                        <button onClick={() => moveFooterSocial(index, 'up')} className="btn btn-xs btn-ghost btn-square" disabled={index === 0}>↑</button>
+                                                        <button onClick={() => moveFooterSocial(index, 'down')} className="btn btn-xs btn-ghost btn-square" disabled={index === (parsedConfig?.user?.footer?.social?.length || 0) - 1}>↓</button>
+                                                        <button onClick={() => removeFooterSocial(index)} className="btn btn-xs btn-ghost btn-square text-error bg-error/10 hover:bg-error hover:text-white">✕</button>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <div className="p-2">
+                                            <button onClick={addFooterSocial} className="btn btn-outline btn-sm w-full border-dashed border-2 text-base-content/50 hover:text-primary hover:border-primary hover:bg-primary/5">
+                                                + 添加按钮
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 {/* Basic Info */}

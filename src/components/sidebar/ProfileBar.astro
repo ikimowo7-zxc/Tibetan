@@ -104,10 +104,15 @@ const getCategoryDisplayName = (category: string): string => {
       <div class="grid grid-cols-4 md:grid-cols-2 lg:grid-cols-4 gap-2 justify-items-center">  
         {USER_SIDEBAR_SOCIAL_ICONS.map((icon) => {
           let href = icon.href;
-          if ((icon.svg.includes('mail') || (icon.svg.includes('at-line') && !icon.svg.includes('wechat'))) && !href.startsWith('mailto:')) {
+          const isMail = (icon.svg.includes('mail') || (icon.svg.includes('at-line') && !icon.svg.includes('wechat')));
+          const isQQ = icon.svg.includes('qq') && /^\d+$/.test(href);
+
+          if (isMail && !href.startsWith('mailto:')) {
             href = `mailto:${href}`;
-          } else if (icon.svg.includes('qq') && /^\d+$/.test(href)) {
+          } else if (isQQ) {
             href = `tencent://message/?uin=${href}&Site=&Menu=yes`;
+          } else if (!isMail && !isQQ && href && !href.startsWith('http')) {
+            href = `https://${href}`;
           }
           return (
           <div class="tooltip tooltip-bottom" data-tip={icon.title}>  
@@ -116,6 +121,7 @@ const getCategoryDisplayName = (category: string): string => {
               href={href}  
               aria-label={icon.ariaLabel}  
               target="_blank"  
+              rel="noopener noreferrer"
               class="btn btn-circle btn-ghost"  
             >  
               <Icon name={icon.svg} class="text-xl" />  

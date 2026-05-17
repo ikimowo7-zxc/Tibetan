@@ -1,6 +1,14 @@
 {
     "songs": [
         {
+            "title": "喜欢",
+            "artist": "阿肆",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173049150195",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=526464145&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=526464145&format=lrc&trans=true",
+            "duration": "04:10"
+        },
+        {
             "title": "STYX HELIX",
             "artist": "MYTH & ROID",
             "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171350916152",
@@ -399,6 +407,14 @@
             "url": "https://163.hyc.moe?server=netease&type=url&id=28151022&br=320",
             "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=28151022&format=lrc&trans=true",
             "duration": "06:09"
+        },
+        {
+            "artist": "周杰伦",
+            "cover": "https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_5.jpg?max_age=2592000",
+            "duration": "04:29",
+            "lrc": "https://imgbed.904002.xyz/file/music/歌词/周杰伦/晴天.lrc",
+            "title": "晴天",
+            "url": "https://music1.904002.xyz/%E5%91%A8%E6%9D%B0%E4%BC%A6/晴天.flac"
         },
         {
             "title": "爱我还是他",
@@ -2297,366 +2313,6 @@
             "duration": "04:07"
         },
         {
-            "title": "crossing field",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168626391156",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=29027453&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29027453&format=lrc&trans=true",
-            "duration": "04:10"
-        },
-        {
-            "title": "ReawakeR",
-            "artist": "LiSA/Felix",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170354358124",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2663496494&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2663496494&format=lrc&trans=true",
-            "duration": "03:05"
-        },
-        {
-            "title": "unlasting",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166202147859",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1397725153&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1397725153&format=lrc&trans=true",
-            "duration": "04:55"
-        },
-        {
-            "title": "oath sign",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166670816187",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=608404&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=608404&format=lrc&trans=true",
-            "duration": "04:09"
-        },
-        {
-            "title": "再会 (produced by Ayase)",
-            "artist": "LiSA/Uru",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165432523159",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1492062605&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1492062605&format=lrc&trans=true",
-            "duration": "04:02"
-        },
-        {
-            "title": "ADAMAS",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169169689665",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1331927012&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1331927012&format=lrc&trans=true",
-            "duration": "03:45"
-        },
-        {
-            "title": "明け星",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166501956917",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1885190399&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1885190399&format=lrc&trans=true",
-            "duration": "04:29"
-        },
-        {
-            "title": "シルシ",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168626383356",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=469744944&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=469744944&format=lrc&trans=true",
-            "duration": "04:46"
-        },
-        {
-            "title": "YES",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173093881673",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=3372335176&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3372335176&format=lrc&trans=true",
-            "duration": "05:01"
-        },
-        {
-            "title": "往け",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166466606999",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1882433311&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1882433311&format=lrc&trans=true",
-            "duration": "03:48"
-        },
-        {
-            "title": "Crossing Field",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163568803769",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=557628108&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=557628108&format=lrc&trans=true",
-            "duration": "04:09"
-        },
-        {
-            "title": "Patch Walk",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172984317032",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=3366036661&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3366036661&format=lrc&trans=true",
-            "duration": "03:59"
-        },
-        {
-            "title": "Catch the Moment",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167953872947",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=479938456&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=479938456&format=lrc&trans=true",
-            "duration": "04:42"
-        },
-        {
-            "title": "DEAD CENTER",
-            "artist": "Reol/LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172526619157",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=3334957251&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3334957251&format=lrc&trans=true",
-            "duration": "02:56"
-        },
-        {
-            "title": "THIS ILLUSION",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=7859309115883404",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=31108223&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=31108223&format=lrc&trans=true",
-            "duration": "04:04"
-        },
-        {
-            "title": "白銀",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166577848331",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1891432164&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1891432164&format=lrc&trans=true",
-            "duration": "04:24"
-        },
-        {
-            "title": "narrative",
-            "artist": "SawanoHiroyuki[nZk]/LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167807565047",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1350129437&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1350129437&format=lrc&trans=true",
-            "duration": "04:20"
-        },
-        {
-            "title": "from the edge -TV ver.-",
-            "artist": "FictionJunction/LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171020416736",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1375433677&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1375433677&format=lrc&trans=true",
-            "duration": "01:30"
-        },
-        {
-            "title": "Social Path",
-            "artist": "Stray Kids/LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168848044551",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2074165638&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2074165638&format=lrc&trans=true",
-            "duration": "03:19"
-        },
-        {
-            "title": "炎 -MOVIE ver.-",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168123666187",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2004730968&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2004730968&format=lrc&trans=true",
-            "duration": "04:48"
-        },
-        {
-            "title": "Rising Hope",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165946262838",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=28481264&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=28481264&format=lrc&trans=true",
-            "duration": "04:12"
-        },
-        {
-            "title": "愛錠",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165217070783",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1469497341&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1469497341&format=lrc&trans=true",
-            "duration": "03:48"
-        },
-        {
-            "title": "play the world!",
-            "artist": "LiSA/Pablo",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165349900498",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1474096021&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1474096021&format=lrc&trans=true",
-            "duration": "04:18"
-        },
-        {
-            "title": "QUEEN",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170037687692",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2635866678&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2635866678&format=lrc&trans=true",
-            "duration": "03:07"
-        },
-        {
-            "title": "REALiZE",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168645231319",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2051284192&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2051284192&format=lrc&trans=true",
-            "duration": "03:10"
-        },
-        {
-            "title": "明け星 -TV ver.-",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168123666187",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2004731903&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2004731903&format=lrc&trans=true",
-            "duration": "01:34"
-        },
-        {
-            "title": "DECOTORA15",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172930314305",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=3362118344&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3362118344&format=lrc&trans=true",
-            "duration": "03:06"
-        },
-        {
-            "title": "dawn",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166198013841",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1813540248&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1813540248&format=lrc&trans=true",
-            "duration": "04:06"
-        },
-        {
-            "title": "小豆あらい",
-            "artist": "LiSA/MAISONdes/ケンモチヒデフミ",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172984317032",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=3366036654&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3366036654&format=lrc&trans=true",
-            "duration": "03:25"
-        },
-        {
-            "title": "Oath Sign",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163568525296",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=557628354&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=557628354&format=lrc&trans=true",
-            "duration": "04:09"
-        },
-        {
-            "title": "Rally Go Round",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169380648123",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=32303141&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=32303141&format=lrc&trans=true",
-            "duration": "04:37"
-        },
-        {
-            "title": "だってアタシのヒーロー。",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173160692087",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=494642740&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=494642740&format=lrc&trans=true",
-            "duration": "03:54"
-        },
-        {
-            "title": "夕景イエスタデイ(Full Mix)",
-            "artist": "じん/LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=6664139976151152",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=29022907&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29022907&format=lrc&trans=true",
-            "duration": "04:17"
-        },
-        {
-            "title": "夜咄ディセイブ",
-            "artist": "じん/LiSA/メイリア from GARNiDELiA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=7817527674131674",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=31260695&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=31260695&format=lrc&trans=true",
-            "duration": "03:21"
-        },
-        {
-            "title": "シャドウ",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172984317032",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=3366036658&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3366036658&format=lrc&trans=true",
-            "duration": "03:31"
-        },
-        {
-            "title": "一番の宝物 (Yui final Ver.)",
-            "artist": "VISUAL ARTS / Key/LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170312506894",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=419594773&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=419594773&format=lrc&trans=true",
-            "duration": "06:04"
-        },
-        {
-            "title": "No More Time Machine",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168626383356",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=469744941&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=469744941&format=lrc&trans=true",
-            "duration": "04:49"
-        },
-        {
-            "title": "罪人",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169496226040",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=521415164&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=521415164&format=lrc&trans=true",
-            "duration": "04:11"
-        },
-        {
-            "title": "炎 - From THE FIRST TAKE",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166577844283",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1891432125&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1891432125&format=lrc&trans=true",
-            "duration": "04:48"
-        },
-        {
-            "title": "ヘッドフォンアクター",
-            "artist": "じん/LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=7817527674131674",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=31260683&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=31260683&format=lrc&trans=true",
-            "duration": "03:42"
-        },
-        {
-            "title": "ASH",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169496226040",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=509728685&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=509728685&format=lrc&trans=true",
-            "duration": "03:59"
-        },
-        {
-            "title": "Orpheus ～君と奏でる明日へのうた～",
-            "artist": "Lia/多田葵/川田まみ/島みやえい子/KOTOKO/詩月カオリ/茶太/Rita/LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170853148049",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=759284&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=759284&format=lrc&trans=true",
-            "duration": "06:05"
-        },
-        {
-            "title": "OPENiNG -LACE UP-",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172984317032",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=3366036650&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3366036650&format=lrc&trans=true",
-            "duration": "01:25"
-        },
-        {
-            "title": "Catch the Moment - From THE FIRST TAKE",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166577854592",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1891432197&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1891432197&format=lrc&trans=true",
-            "duration": "06:27"
-        },
-        {
-            "title": "ブラックボックス",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169703897251",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2600545775&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2600545775&format=lrc&trans=true",
-            "duration": "04:06"
-        },
-        {
             "title": "我想要占据你",
             "artist": "告五人",
             "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168306417191",
@@ -3055,29 +2711,28 @@
             "url": "https://163.hyc.moe?server=netease&type=url&id=2022069283&br=320",
             "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2022069283&format=lrc&trans=true",
             "duration": "05:08"
-        },
-        {
-            "artist": "周杰伦",
-            "cover": "https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_5.jpg?max_age=2592000",
-            "duration": "04:29",
-            "lrc": "https://imgbed.904002.xyz/file/music/歌词/周杰伦/晴天.lrc",
-            "title": "晴天",
-            "url": "https://music1.904002.xyz/%E5%91%A8%E6%9D%B0%E4%BC%A6/晴天.flac"
         }
     ],
     "playlistCounts": {
-        "17933567326": 50,
+        "17933567326": 51,
+        "zhoujielun": 1,
         "17964946766": 50,
         "17957187425": 50,
         "17956985703": 50,
         "17957136689": 48,
         "17957661244": 50,
-        "17957179525": 49,
-        "17966019560": 50,
-        "zhoujielun": 1
+        "17966019560": 50
     },
     "playlistSongs": {
         "17933567326": [
+            {
+                "title": "喜欢",
+                "artist": "阿肆",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173049150195",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=526464145&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=526464145&format=lrc&trans=true",
+                "duration": "04:10"
+            },
             {
                 "title": "STYX HELIX",
                 "artist": "MYTH & ROID",
@@ -3477,6 +3132,16 @@
                 "url": "https://163.hyc.moe?server=netease&type=url&id=28151022&br=320",
                 "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=28151022&format=lrc&trans=true",
                 "duration": "06:09"
+            }
+        ],
+        "zhoujielun": [
+            {
+                "artist": "周杰伦",
+                "cover": "https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_5.jpg?max_age=2592000",
+                "duration": "04:29",
+                "lrc": "https://imgbed.904002.xyz/file/music/歌词/周杰伦/晴天.lrc",
+                "title": "晴天",
+                "url": "https://music1.904002.xyz/%E5%91%A8%E6%9D%B0%E4%BC%A6/晴天.flac"
             }
         ],
         "17964946766": [
@@ -5473,400 +5138,6 @@
                 "duration": "04:07"
             }
         ],
-        "17957179525": [
-            {
-                "title": "紅蓮華",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169169579096",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1375305989&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1375305989&format=lrc&trans=true",
-                "duration": "03:56"
-            },
-            {
-                "title": "crossing field",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168626391156",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=29027453&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29027453&format=lrc&trans=true",
-                "duration": "04:10"
-            },
-            {
-                "title": "ReawakeR",
-                "artist": "LiSA/Felix",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170354358124",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2663496494&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2663496494&format=lrc&trans=true",
-                "duration": "03:05"
-            },
-            {
-                "title": "unlasting",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166202147859",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1397725153&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1397725153&format=lrc&trans=true",
-                "duration": "04:55"
-            },
-            {
-                "title": "炎",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165349903788",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1482908655&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1482908655&format=lrc&trans=true",
-                "duration": "04:34"
-            },
-            {
-                "title": "残酷な夜に輝け - Shine in the Cruel Night",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171480745508",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2727103261&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2727103261&format=lrc&trans=true",
-                "duration": "06:23"
-            },
-            {
-                "title": "oath sign",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166670816187",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=608404&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=608404&format=lrc&trans=true",
-                "duration": "04:09"
-            },
-            {
-                "title": "再会 (produced by Ayase)",
-                "artist": "LiSA/Uru",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165432523159",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1492062605&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1492062605&format=lrc&trans=true",
-                "duration": "04:02"
-            },
-            {
-                "title": "ADAMAS",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169169689665",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1331927012&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1331927012&format=lrc&trans=true",
-                "duration": "03:45"
-            },
-            {
-                "title": "明け星",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166501956917",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1885190399&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1885190399&format=lrc&trans=true",
-                "duration": "04:29"
-            },
-            {
-                "title": "from the edge",
-                "artist": "FictionJunction/LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171371865924",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1388181876&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1388181876&format=lrc&trans=true",
-                "duration": "04:38"
-            },
-            {
-                "title": "シルシ",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168626383356",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=469744944&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=469744944&format=lrc&trans=true",
-                "duration": "04:46"
-            },
-            {
-                "title": "YES",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173093881673",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=3372335176&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3372335176&format=lrc&trans=true",
-                "duration": "05:01"
-            },
-            {
-                "title": "往け",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166466606999",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1882433311&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1882433311&format=lrc&trans=true",
-                "duration": "03:48"
-            },
-            {
-                "title": "Crossing Field",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163568803769",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=557628108&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=557628108&format=lrc&trans=true",
-                "duration": "04:09"
-            },
-            {
-                "title": "Patch Walk",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172984317032",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=3366036661&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3366036661&format=lrc&trans=true",
-                "duration": "03:59"
-            },
-            {
-                "title": "Catch the Moment",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167953872947",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=479938456&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=479938456&format=lrc&trans=true",
-                "duration": "04:42"
-            },
-            {
-                "title": "DEAD CENTER",
-                "artist": "Reol/LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172526619157",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=3334957251&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3334957251&format=lrc&trans=true",
-                "duration": "02:56"
-            },
-            {
-                "title": "THIS ILLUSION",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=7859309115883404",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=31108223&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=31108223&format=lrc&trans=true",
-                "duration": "04:04"
-            },
-            {
-                "title": "白銀",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166577848331",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1891432164&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1891432164&format=lrc&trans=true",
-                "duration": "04:24"
-            },
-            {
-                "title": "narrative",
-                "artist": "SawanoHiroyuki[nZk]/LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167807565047",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1350129437&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1350129437&format=lrc&trans=true",
-                "duration": "04:20"
-            },
-            {
-                "title": "from the edge -TV ver.-",
-                "artist": "FictionJunction/LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171020416736",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1375433677&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1375433677&format=lrc&trans=true",
-                "duration": "01:30"
-            },
-            {
-                "title": "Social Path",
-                "artist": "Stray Kids/LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168848044551",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2074165638&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2074165638&format=lrc&trans=true",
-                "duration": "03:19"
-            },
-            {
-                "title": "炎 -MOVIE ver.-",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168123666187",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2004730968&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2004730968&format=lrc&trans=true",
-                "duration": "04:48"
-            },
-            {
-                "title": "Rising Hope",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165946262838",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=28481264&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=28481264&format=lrc&trans=true",
-                "duration": "04:12"
-            },
-            {
-                "title": "愛錠",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165217070783",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1469497341&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1469497341&format=lrc&trans=true",
-                "duration": "03:48"
-            },
-            {
-                "title": "play the world!",
-                "artist": "LiSA/Pablo",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165349900498",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1474096021&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1474096021&format=lrc&trans=true",
-                "duration": "04:18"
-            },
-            {
-                "title": "QUEEN",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170037687692",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2635866678&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2635866678&format=lrc&trans=true",
-                "duration": "03:07"
-            },
-            {
-                "title": "REALiZE",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168645231319",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2051284192&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2051284192&format=lrc&trans=true",
-                "duration": "03:10"
-            },
-            {
-                "title": "明け星 -TV ver.-",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168123666187",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2004731903&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2004731903&format=lrc&trans=true",
-                "duration": "01:34"
-            },
-            {
-                "title": "DECOTORA15",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172930314305",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=3362118344&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3362118344&format=lrc&trans=true",
-                "duration": "03:06"
-            },
-            {
-                "title": "dawn",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166198013841",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1813540248&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1813540248&format=lrc&trans=true",
-                "duration": "04:06"
-            },
-            {
-                "title": "小豆あらい",
-                "artist": "LiSA/MAISONdes/ケンモチヒデフミ",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172984317032",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=3366036654&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3366036654&format=lrc&trans=true",
-                "duration": "03:25"
-            },
-            {
-                "title": "Oath Sign",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163568525296",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=557628354&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=557628354&format=lrc&trans=true",
-                "duration": "04:09"
-            },
-            {
-                "title": "Rally Go Round",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169380648123",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=32303141&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=32303141&format=lrc&trans=true",
-                "duration": "04:37"
-            },
-            {
-                "title": "だってアタシのヒーロー。",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173160692087",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=494642740&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=494642740&format=lrc&trans=true",
-                "duration": "03:54"
-            },
-            {
-                "title": "夕景イエスタデイ(Full Mix)",
-                "artist": "じん/LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=6664139976151152",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=29022907&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29022907&format=lrc&trans=true",
-                "duration": "04:17"
-            },
-            {
-                "title": "夜咄ディセイブ",
-                "artist": "じん/LiSA/メイリア from GARNiDELiA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=7817527674131674",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=31260695&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=31260695&format=lrc&trans=true",
-                "duration": "03:21"
-            },
-            {
-                "title": "シャドウ",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172984317032",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=3366036658&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3366036658&format=lrc&trans=true",
-                "duration": "03:31"
-            },
-            {
-                "title": "一番の宝物 (Yui final Ver.)",
-                "artist": "VISUAL ARTS / Key/LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170312506894",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=419594773&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=419594773&format=lrc&trans=true",
-                "duration": "06:04"
-            },
-            {
-                "title": "No More Time Machine",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168626383356",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=469744941&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=469744941&format=lrc&trans=true",
-                "duration": "04:49"
-            },
-            {
-                "title": "罪人",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169496226040",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=521415164&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=521415164&format=lrc&trans=true",
-                "duration": "04:11"
-            },
-            {
-                "title": "炎 - From THE FIRST TAKE",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166577844283",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1891432125&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1891432125&format=lrc&trans=true",
-                "duration": "04:48"
-            },
-            {
-                "title": "ヘッドフォンアクター",
-                "artist": "じん/LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=7817527674131674",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=31260683&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=31260683&format=lrc&trans=true",
-                "duration": "03:42"
-            },
-            {
-                "title": "ASH",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169496226040",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=509728685&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=509728685&format=lrc&trans=true",
-                "duration": "03:59"
-            },
-            {
-                "title": "Orpheus ～君と奏でる明日へのうた～",
-                "artist": "Lia/多田葵/川田まみ/島みやえい子/KOTOKO/詩月カオリ/茶太/Rita/LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170853148049",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=759284&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=759284&format=lrc&trans=true",
-                "duration": "06:05"
-            },
-            {
-                "title": "OPENiNG -LACE UP-",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172984317032",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=3366036650&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3366036650&format=lrc&trans=true",
-                "duration": "01:25"
-            },
-            {
-                "title": "Catch the Moment - From THE FIRST TAKE",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166577854592",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1891432197&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1891432197&format=lrc&trans=true",
-                "duration": "06:27"
-            },
-            {
-                "title": "ブラックボックス",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169703897251",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2600545775&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2600545775&format=lrc&trans=true",
-                "duration": "04:06"
-            }
-        ],
         "17966019560": [
             {
                 "title": "我想要占据你",
@@ -6267,16 +5538,6 @@
                 "url": "https://163.hyc.moe?server=netease&type=url&id=2022069283&br=320",
                 "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2022069283&format=lrc&trans=true",
                 "duration": "05:08"
-            }
-        ],
-        "zhoujielun": [
-            {
-                "artist": "周杰伦",
-                "cover": "https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_5.jpg?max_age=2592000",
-                "duration": "04:29",
-                "lrc": "https://imgbed.904002.xyz/file/music/歌词/周杰伦/晴天.lrc",
-                "title": "晴天",
-                "url": "https://music1.904002.xyz/%E5%91%A8%E6%9D%B0%E4%BC%A6/晴天.flac"
             }
         ]
     }

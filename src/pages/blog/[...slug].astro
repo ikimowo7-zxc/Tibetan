@@ -178,6 +178,7 @@ const url = new URL(`/blog/${blog.slug}`, Astro.url.origin);
       });
 
       Fancybox.bind("[data-fancybox]", {
+        Hash: false,
         // 可以在这里配置 Fancybox 选项
         Toolbar: {
           display: {

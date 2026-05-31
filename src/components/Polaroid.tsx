@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
 export const polaroidVariants = {
   "1x1": "w-32 h-32",
@@ -29,6 +29,7 @@ const Polaroid = ({
 }: PolaroidProps) => {
   const variantClasses = polaroidVariants[variant] || polaroidVariants["1x1"];
   const randomRotation = useMemo(() => Math.random() * 30 - 15, []);
+  const [loaded, setLoaded] = useState(false);
 
   return (
     <motion.div
@@ -83,10 +84,17 @@ const Polaroid = ({
         <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-sm" />
         
         <div className="relative bg-white p-1 rounded-sm h-full flex items-center justify-center">
+          {!loaded && (
+            <div className="absolute inset-0 flex items-center justify-center bg-base-200/50 backdrop-blur-[2px] z-10 m-1 rounded-sm">
+              <span className="loading loading-infinity w-6 text-primary/80"></span>
+            </div>
+          )}
           <img
-            className="object-cover rounded-sm transition-all duration-300 group-hover:scale-105 w-full h-full"
+            className={`object-cover rounded-sm transition-all duration-300 group-hover:scale-105 w-full h-full ${loaded ? 'opacity-100' : 'opacity-0'}`}
             src={src}
             alt=""
+            onLoad={() => setLoaded(true)}
+            onError={() => setLoaded(true)}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-sm pointer-events-none" />
         </div>

@@ -8,7 +8,8 @@ import {
 } from 'lucide-react'
 import { useAlbumStore } from '@/stores/album-store'
 import { useAuthStore } from '@/components/write/hooks/use-auth'
-import { detectVariantFromUrl } from '@/lib/photo-utils'
+import { detectVariant, detectVariantFromUrl } from '@/lib/photo-utils'
+import { readFileAsText } from '@/lib/file-utils'
 import { toast, Toaster } from 'sonner'
 import type { AlbumItem, Photo } from '@/data/albums'
 
@@ -17,6 +18,46 @@ const VARIANT_OPTIONS: Photo['variant'][] = ['1x1', '4x3', '4x5', '9x16']
 
 type Tab = 'info' | 'photos'
 
+function AdminThumbnail({ src, alt, onLoadDimensions }: { src: string, alt: string, onLoadDimensions?: (w: number, h: number) => void }) {
+  const [loaded, setLoaded] = useState(false)
+  const [error, setError] = useState(false)
+
+  // Reset state when src changes
+  useEffect(() => {
+    setLoaded(false)
+    setError(false)
+  }, [src])
+
+  return (
+    <div className="w-[100px] h-[100px] rounded-lg overflow-hidden bg-base-300 shrink-0 my-[15px] relative">
+      {!loaded && !error && (
+        <div className="absolute inset-0 flex items-center justify-center bg-base-200/50 backdrop-blur-[2px] z-10">
+          <span className="loading loading-infinity w-8 text-primary/80"></span>
+        </div>
+      )}
+      {error && (
+        <div className="absolute inset-0 flex items-center justify-center bg-base-300 flex-col gap-1 text-base-content/40 text-xs">
+          <ImageIcon className="w-5 h-5 opacity-50" />
+          <span>失效</span>
+        </div>
+      )}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        className={`w-full h-full object-cover transition-opacity duration-300 ${loaded && !error ? 'opacity-100' : 'opacity-0'}`}
+        onLoad={(e) => {
+          setLoaded(true)
+          if (onLoadDimensions) {
+            onLoadDimensions(e.currentTarget.naturalWidth, e.currentTarget.naturalHeight)
+          }
+        }}
+        onError={() => { setLoaded(true); setError(true) }}
+      />
+    </div>
+  )
+}
+
 export default function AlbumAdmin() {
   const {
     albums, adminAlbumId, isSaving, closeAdmin, saveAlbums,
@@ -24,7 +65,7 @@ export default function AlbumAdmin() {
     deleteAlbum, addPendingPhoto,
   } = useAlbumStore()
 
-  const { isAuth } = useAuthStore()
+  const { isAuth, setPrivateKey } = useAuthStore()
 
   const [activeTab, setActiveTab] = useState<Tab>('info')
   const [isOpen, setIsOpen] = useState(false)
@@ -36,6 +77,7 @@ export default function AlbumAdmin() {
   const [urlInput, setUrlInput] = useState('')
   const [dragOver, setDragOver] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const keyInputRef = useRef<HTMLInputElement>(null)
 
   const album = albums.find((a) => a.id === adminAlbumId)
   const albumIndex = albums.findIndex((a) => a.id === adminAlbumId)
@@ -61,11 +103,22 @@ export default function AlbumAdmin() {
 
   const handleSaveAndSync = async () => {
     if (!isAuth) {
-      toast.error('请先在页面顶部导入 GitHub 密钥后再保存')
+      toast.error('请先导入密钥后再保存')
+      keyInputRef.current?.click()
       return
     }
     await saveAlbums()
     handleClose()
+  }
+
+  const onChoosePrivateKey = async (file: File) => {
+    try {
+      const pem = await readFileAsText(file)
+      setPrivateKey(pem)
+      toast.success('密钥导入成功')
+    } catch (e) {
+      toast.error('无法读取文件')
+    }
   }
 
   // Album field updaters
@@ -81,20 +134,39 @@ export default function AlbumAdmin() {
     const urls = urlInput.trim().split('\n').map(s => s.trim()).filter(Boolean)
     if (urls.length === 0) return
 
-    // Batch process all URLs
-    const newPhotos: Photo[] = []
-    for (const url of urls) {
-      const variant = await detectVariantFromUrl(url)
-      newPhotos.push({
-        src: url,
-        variant,
-      })
-    }
+    // Immediately resolve names and add with a default variant to respond quickly
+    const newPhotosItems: Photo[] = urls.map((url) => {
+      let title = ''
+      try {
+        const urlObj = new URL(url)
+        const filename = urlObj.pathname.split('/').pop() || ''
+        const rawTitle = filename.replace(/\.[^/.]+$/, '')
+        try {
+          title = decodeURIComponent(rawTitle)
+        } catch {
+          title = rawTitle
+        }
+      } catch (e) {
+        const filename = url.split('/').pop()?.split('?')[0] || ''
+        const rawTitle = filename.replace(/\.[^/.]+$/, '')
+        try {
+          title = decodeURIComponent(rawTitle)
+        } catch {
+          title = rawTitle
+        }
+      }
 
-    if (newPhotos.length === 1) {
-      addPhoto(album.id, newPhotos[0])
+      return {
+        src: url,
+        variant: '1x1', // Placeholder variant layout
+        title: title || undefined
+      }
+    })
+
+    if (newPhotosItems.length === 1) {
+      addPhoto(album.id, newPhotosItems[0])
     } else {
-      addPhotos(album.id, newPhotos)
+      addPhotos(album.id, newPhotosItems)
     }
 
     setUrlInput('')
@@ -106,25 +178,32 @@ export default function AlbumAdmin() {
     const fileArray = Array.from(files).filter((f) => f.type.startsWith('image/'))
     if (fileArray.length === 0) return
 
+    const toastId = toast.loading(`准备处理 ${fileArray.length} 张图片...`)
     const startIndex = photos.length
-    const newItems: Photo[] = []
 
-    for (let i = 0; i < fileArray.length; i++) {
-      const file = fileArray[i]
+    // 并发处理图片
+    const processPromises = fileArray.map(async (file, i) => {
       const dataUrl = await new Promise<string>((resolve) => {
         const reader = new FileReader()
         reader.onload = () => resolve(reader.result as string)
         reader.readAsDataURL(file)
       })
       const variant = await detectVariantFromUrl(dataUrl)
-      newItems.push({ src: dataUrl, variant, title: file.name.replace(/\.[^.]+$/, '') })
-
-      // Track file for GitHub upload via pending photos
+      
       const key = `${album.id}::${startIndex + i}`
       const previewUrl = URL.createObjectURL(file)
       addPendingPhoto(key, { file, previewUrl })
-    }
 
+      return {
+        src: dataUrl,
+        variant,
+        title: file.name.replace(/\.[^.]+$/, '')
+      } as Photo
+    })
+
+    const newItems = await Promise.all(processPromises)
+
+    toast.dismiss(toastId)
     addPhotos(album.id, newItems)
   }
 
@@ -172,6 +251,17 @@ export default function AlbumAdmin() {
           className: 'shadow-xl rounded-2xl border-2 border-primary/20 backdrop-blur-sm',
           style: { fontSize: '1rem', padding: '14px 20px', borderRadius: '12px', boxShadow: '0 10px 40px rgba(0, 0, 0, 0.15)' },
           duration: 5000,
+        }}
+      />
+      <input
+        ref={keyInputRef}
+        type="file"
+        accept=".pem"
+        className="hidden"
+        onChange={async e => {
+          const f = e.target.files?.[0]
+          if (f) await onChoosePrivateKey(f)
+          if (e.currentTarget) e.currentTarget.value = ''
         }}
       />
       <AnimatePresence>
@@ -435,14 +525,17 @@ export default function AlbumAdmin() {
                               className="flex items-center gap-3 bg-base-200/50 rounded-xl p-3 border border-base-200 hover:border-base-300 transition-colors group h-[130px]"
                             >
                               {/* Thumbnail */}
-                              <div className="w-[100px] h-[100px] rounded-lg overflow-hidden bg-base-300 shrink-0 my-[15px]">
-                                <img
-                                  src={photo.src}
-                                  alt={photo.title || ''}
-                                  className="w-full h-full object-cover"
-                                  loading="lazy"
-                                />
-                              </div>
+                              <AdminThumbnail
+                                src={photo.src}
+                                alt={photo.title || ''}
+                                onLoadDimensions={(w, h) => {
+                                  if (!canEdit) return
+                                  const realVariant = detectVariant(w, h)
+                                  if (realVariant !== photo.variant) {
+                                    updatePhoto(album.id, idx, { ...photo, variant: realVariant })
+                                  }
+                                }}
+                              />
 
                               {/* Edit fields */}
                               <div className="flex-1 min-w-0 space-y-2">

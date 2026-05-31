@@ -19,6 +19,7 @@ const VARIANT_RATIO: Record<string, string> = {
 
 function PhotoImage({ photo }: { photo: Photo }) {
   const [error, setError] = useState(false)
+  const [loaded, setLoaded] = useState(false)
 
   if (error) {
     return (
@@ -33,13 +34,21 @@ function PhotoImage({ photo }: { photo: Photo }) {
   }
 
   return (
-    <img
-      src={photo.src}
-      alt={photo.title || ''}
-      className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
-      loading="lazy"
-      onError={() => setError(true)}
-    />
+    <>
+      {!loaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-base-200/50 backdrop-blur-[2px] z-10">
+          <span className="loading loading-infinity w-10 text-primary/80"></span>
+        </div>
+      )}
+      <img
+        src={photo.src}
+        alt={photo.title || ''}
+        className={`absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500 ease-out ${loaded ? 'opacity-100' : 'opacity-0'}`}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        onError={() => { setLoaded(true); setError(true) }}
+      />
+    </>
   )
 }
 
@@ -79,6 +88,19 @@ export default function PhotoWallGrid({ initialAlbum, event }: Props) {
         setPhotos(storePhotos)
       }
     }
+    
+    // Function to update document and page title from store
+    const syncPageInfo = (album: AlbumItem | undefined) => {
+      if (!album) return
+      document.title = `${album.event} - 照片集`
+      const titleEl = document.getElementById("photo-wall-title")
+      if (titleEl) titleEl.textContent = `${album.icon || ''} ${album.event}`.trim()
+      const descEl = document.getElementById("photo-wall-description")
+      if (descEl) descEl.textContent = album.title || ''
+    }
+
+    // Sync initially
+    syncPageInfo(getAlbumFromStore())
 
     if (!albumId) return
 
@@ -87,11 +109,12 @@ export default function PhotoWallGrid({ initialAlbum, event }: Props) {
       const album = state.albums.find((a) => a.id === albumId)
       if (album) {
         setPhotos(album.photos || [])
+        syncPageInfo(album)
       }
     })
 
     return unsub
-  }, [albumId, getPhotosFromStore])
+  }, [albumId, getPhotosFromStore, getAlbumFromStore])
 
   const [colCount, setColCount] = useState(3)
 

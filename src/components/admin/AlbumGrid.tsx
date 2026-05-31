@@ -1,27 +1,26 @@
-'use client'
+"use client";
 
-import { useAlbumStore } from '@/stores/album-store'
-import { formattedDate } from '@/data/albums'
-import PolaroidGallery from '@/components/PolaroidGallery'
-import type { AlbumItem } from '@/data/albums'
-import { Edit3, Trash2, ChevronUp, ChevronDown, Camera } from 'lucide-react'
+import { useAlbumStore } from "@/stores/album-store";
+import { formattedDate } from "@/data/albums";
+import PolaroidGallery from "@/components/PolaroidGallery";
+import type { AlbumItem } from "@/data/albums";
+import { Edit3, Trash2, ChevronUp, ChevronDown, Camera } from "lucide-react";
 
 export default function AlbumGrid() {
-  const {
-    albums,
-    isEditMode,
-    openAdmin,
-    deleteAlbum,
-    moveAlbum,
-  } = useAlbumStore()
+  const { albums, isEditMode, openAdmin, deleteAlbum, moveAlbum } =
+    useAlbumStore();
 
-  const displayAlbums = albums
+  const displayAlbums = albums;
 
   const handleDeleteAlbum = (album: AlbumItem) => {
-    if (confirm(`确定要删除「${album.event || album.title || '未命名'}」及其所有照片吗？此操作不可撤销。`)) {
-      deleteAlbum(album.id)
+    if (
+      confirm(
+        `确定要删除「${album.event || album.title || "未命名"}」及其所有照片吗？此操作不可撤销。`,
+      )
+    ) {
+      deleteAlbum(album.id);
     }
-  }
+  };
 
   return (
     <div>
@@ -29,8 +28,8 @@ export default function AlbumGrid() {
         {displayAlbums.map((album, index) => (
           <div
             key={album.id}
-            className="bg-base-100 rounded-2xl overflow-hidden shadow-sm border border-base-200 hover:shadow-xl transition-all duration-300 animate-fade-in-up group"
-            style={{ animationDelay: `${index * 0.1}s` }}
+            className="bg-base-100 rounded-2xl overflow-hidden shadow-sm border border-base-200 hover:shadow-xl transition-all duration-300 group"
+            style={{ viewTransitionName: `album-${album.id}` }}
           >
             {/* Admin actions bar — only in edit mode */}
             {isEditMode && (
@@ -48,7 +47,10 @@ export default function AlbumGrid() {
                     <ChevronUp className="w-3.5 h-3.5" />
                   </button>
                   <button
-                    onClick={() => index < displayAlbums.length - 1 && moveAlbum(index, index + 1)}
+                    onClick={() =>
+                      index < displayAlbums.length - 1 &&
+                      moveAlbum(index, index + 1)
+                    }
                     disabled={index === displayAlbums.length - 1}
                     className="btn btn-xs btn-ghost text-base-content/30 hover:text-base-content disabled:opacity-10"
                     title="下移"
@@ -79,7 +81,9 @@ export default function AlbumGrid() {
               <div className="flex items-center justify-between mb-2">
                 <div>
                   <h2 className="text-lg font-semibold flex items-center gap-2">
-                    {album.icon && <span className="text-xl">{album.icon}</span>}
+                    {album.icon && (
+                      <span className="text-xl">{album.icon}</span>
+                    )}
                     <a
                       href={`/photo-wall?id=${album.id}`}
                       className="text-primary hover:underline"
@@ -88,7 +92,9 @@ export default function AlbumGrid() {
                     </a>
                   </h2>
                   {album.title && (
-                    <p className="text-sm text-base-content/60">{album.title}</p>
+                    <p className="text-sm text-base-content/60">
+                      {album.title}
+                    </p>
                   )}
                 </div>
                 <span className="text-sm text-muted-foreground whitespace-nowrap bg-base-200/50 px-3 py-1 rounded-full">
@@ -96,7 +102,9 @@ export default function AlbumGrid() {
                 </span>
               </div>
               {album.description && (
-                <p className="text-sm text-muted-foreground line-clamp-2">{album.description}</p>
+                <p className="text-sm text-muted-foreground line-clamp-2">
+                  {album.description}
+                </p>
               )}
               {album.photos && album.photos.length > 0 && (
                 <span className="text-xs text-base-content/30 mt-1 inline-flex items-center gap-1">
@@ -109,7 +117,10 @@ export default function AlbumGrid() {
             {/* Polaroid gallery preview */}
             {album.photos && album.photos.length > 0 && (
               <div className="px-4 pb-4 overflow-visible">
-                <div className="relative w-full overflow-visible" style={{ minHeight: '200px' }}>
+                <div
+                  className="relative w-full overflow-visible"
+                  style={{ minHeight: "200px" }}
+                >
                   <PolaroidGallery
                     images={album.photos}
                     event={album.id}
@@ -130,5 +141,5 @@ export default function AlbumGrid() {
         </div>
       )}
     </div>
-  )
+  );
 }

@@ -34,3 +34,8 @@ pnpm-store/
 .dev.vars*
 !.dev.vars.example
 !.env.example
+
+
+# syncthing files
+*.syncthing*
+*.sync*

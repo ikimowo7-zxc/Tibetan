@@ -21,18 +21,35 @@ import { CustomSelect } from './components/ui/custom-select'
 
 // Common social icons mapping
 const SOCIAL_PRESETS = [
-    { label: 'Github', value: 'ri:github-line' },
-    { label: 'Twitter (X)', value: 'ri:twitter-line' },
+    { label: 'Baidutieba', value: 'ri:baidu-line' },
     { label: 'Bilibili', value: 'ri:bilibili-line' },
-    { label: 'Email', value: 'ri:mail-line' },
-    { label: 'Telegram', value: 'ri:telegram-line' },
-    { label: 'QQ', value: 'ri:qq-line' },
-    { label: 'WeChat', value: 'ri:wechat-fill' },
+    { label: 'CloudMusic', value: 'ri:netease-cloud-music-line' },
+    { label: 'Discord', value: 'ri:discord-line' },
+    { label: 'Douban', value: 'ri:douban-line' },
     { label: 'Douyin', value: 'ri:tiktok-line' },
+    { label: 'Email', value: 'ri:mail-line' },
+    { label: 'Facebook', value: 'ri:facebook-line' },
+    { label: 'Github', value: 'ri:github-line' },
+    { label: 'GitLab', value: 'ri:gitlab-line' },
+    { label: 'Instagram', value: 'ri:instagram-line' },
+    { label: 'LinkedIn', value: 'ri:linkedin-box-line' },
+    { label: 'Mastodon', value: 'ri:mastodon-line' },
+    { label: 'Other', value: 'ri:link' },
+    { label: 'Pixiv', value: 'simple-icons:pixiv' },
+    { label: 'QQ', value: 'ri:qq-line' },
+    { label: 'Reddit', value: 'ri:reddit-line' },
+    { label: 'Rednote', value: 'simple-icons:xiaohongshu' },
     { label: 'RSS', value: 'ri:rss-fill' },
+    { label: 'Spotify', value: 'ri:spotify-line' },
+    { label: 'Steam', value: 'ri:steam-line' },
+    { label: 'Telegram', value: 'ri:telegram-line' },
+    { label: 'Twitch', value: 'ri:twitch-line' },
+    { label: 'Twitter (X)', value: 'ri:twitter-line' },
+    { label: 'WeChat', value: 'ri:wechat-fill' },
     { label: 'Weibo', value: 'ri:weibo-fill' },
+    { label: 'Xianyu', value: 'ri:shopping-bag-line' },
+    { label: 'YouTube', value: 'ri:youtube-line' },
     { label: 'Zhihu', value: 'ri:zhihu-line' },
-    { label: 'Other', value: 'ri:link' }
 ]
 
 const COMMENT_PROVIDERS = [
@@ -963,6 +980,7 @@ export function ConfigPage() {
                                     {/* Social Buttons (moved here) */}
                                     <div className="space-y-4">
                                         <div className="text-sm font-medium text-base-content/70 ml-1">社交按钮</div>
+                                        <div className="text-sm font-medium text-base-content/70 ml-1">填写邮箱请用格式'mailto:abc@def.com'</div>
                                         <div className="card bg-base-100 shadow-sm border border-base-200 p-2 rounded-2xl">
                                             <div className="space-y-2 p-2">
                                                 {(parsedConfig?.user?.sidebar?.social || []).map((item: any, index: number) => (

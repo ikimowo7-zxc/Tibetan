@@ -212,6 +212,9 @@ async function fetchMusicDuration() {
 
     if (pending.length === 0) {
       console.log('✅ All durations already cached.');
+      // Still save to persist fingerprint and playlist structure
+      const output = { songs: allSongs, playlistCounts, playlistSongs, _fingerprint: fingerprint };
+      await fs.writeFile(MUSIC_DATA_PATH, JSON.stringify(output, null, 4), 'utf-8');
       return;
     }
 

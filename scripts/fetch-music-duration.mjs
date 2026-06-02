@@ -1,6 +1,7 @@
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { parseBuffer } from 'music-metadata';
 import yaml from 'js-yaml';
 
@@ -131,20 +132,31 @@ async function fetchMusicDuration() {
 
     console.log(`🎵 Fetching ${playlists.length} playlist(s)...`);
 
+    // Compute fingerprint of playlist config to detect changes
+    const fingerprint = crypto
+      .createHash('md5')
+      .update(JSON.stringify(playlists))
+      .digest('hex');
+
     // Load existing data for duration caching
-    let existingData = { songs: [], playlistCounts: {} };
+    let existingData = { songs: [], playlistCounts: {}, playlistSongs: {} };
     const urlToDuration = new Map();
     try {
       const raw = await fs.readFile(MUSIC_DATA_PATH, 'utf-8');
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed)) {
-        existingData = { songs: parsed, playlistCounts: {} };
+        existingData = { songs: parsed, playlistCounts: {}, playlistSongs: {} };
       } else {
         existingData = parsed;
       }
       existingData.songs.forEach(s => {
         if (s.url && s.duration) urlToDuration.set(s.url, s.duration);
       });
+      // Skip entirely if playlist config hasn't changed
+      if (existingData._fingerprint === fingerprint) {
+        console.log('✅ Playlist unchanged, all durations already cached. Skipping fetch.');
+        return;
+      }
     } catch (e) { /* no existing data */ }
 
     // Fetch all playlists
@@ -200,6 +212,9 @@ async function fetchMusicDuration() {
 
     if (pending.length === 0) {
       console.log('✅ All durations already cached.');
+      // Still save to persist fingerprint and playlist structure
+      const output = { songs: allSongs, playlistCounts, playlistSongs, _fingerprint: fingerprint };
+      await fs.writeFile(MUSIC_DATA_PATH, JSON.stringify(output, null, 4), 'utf-8');
       return;
     }
 
@@ -211,7 +226,7 @@ async function fetchMusicDuration() {
     let failed = 0;
     let lastSave = 0;
 
-    const output = { songs: allSongs, playlistCounts, playlistSongs };
+    const output = { songs: allSongs, playlistCounts, playlistSongs, _fingerprint: fingerprint };
 
     async function worker(workerId) {
       while (true) {

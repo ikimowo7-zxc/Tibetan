@@ -4,13 +4,10 @@ interface Props {
   lang?: string;
 }
 
-const {
-  envId,
-  lang = "zh-CN",
-} = Astro.props;
+const { envId, lang = "zh-CN" } = Astro.props;
 
 // 判断是否为 Vercel 部署（envId 以 http 开头）
-const isVercel = envId.startsWith('http');
+const isVercel = envId.startsWith("http");
 ---
 
 <div id="tcomment-container">
@@ -19,9 +16,15 @@ const isVercel = envId.startsWith('http');
     <div class="twikoo-spinner"></div>
     <p class="twikoo-loading-text">加载评论中...</p>
   </div>
-  
+
   <!-- Comments Container -->
-  <div id="tcomment" data-env-id={envId} data-lang={lang} class="twikoo-content hidden"></div>
+  <div
+    id="tcomment"
+    data-env-id={envId}
+    data-lang={lang}
+    class="twikoo-content hidden"
+  >
+  </div>
 </div>
 
 <script is:inline>
@@ -32,21 +35,21 @@ const isVercel = envId.startsWith('http');
   // CDN 列表，按优先级排序
   const cdnUrls = [
     // 优先使用国内 CDN
-    'https://registry.npmmirror.com/twikoo@1.7.9/files/dist/twikoo.min.js',
+    "https://registry.npmmirror.com/twikoo@1.7.9/files/dist/twikoo.min.js",
     // 备用 CDN
-    'https://cdn.jsdelivr.net/npm/twikoo@1.7.9/dist/twikoo.min.js',
-    'https://s4.zstatic.net/npm/twikoo@1.7.9/dist/twikoo.min.js',
+    "https://cdn.jsdelivr.net/npm/twikoo@1.7.9/dist/twikoo.min.js",
+    "https://s4.zstatic.net/npm/twikoo@1.7.9/dist/twikoo.min.js",
   ];
 
   function hideLoading() {
-    const loading = document.getElementById('twikoo-loading');
-    const content = document.getElementById('tcomment');
-    if (loading) loading.style.display = 'none';
-    if (content) content.classList.remove('hidden');
+    const loading = document.getElementById("twikoo-loading");
+    const content = document.getElementById("tcomment");
+    if (loading) loading.style.display = "none";
+    if (content) content.classList.remove("hidden");
   }
 
   function loadTwikooWithCDN() {
-    const commentsContainer = document.getElementById('tcomment');
+    const commentsContainer = document.getElementById("tcomment");
     if (!commentsContainer || twikooLoaded) return;
 
     const envId = commentsContainer.dataset.envId;
@@ -55,32 +58,33 @@ const isVercel = envId.startsWith('http');
     // 超出 CDN 列表范围，显示错误
     if (currentCDNIndex >= cdnUrls.length) {
       hideLoading();
-      commentsContainer.innerHTML = '<p class="text-center text-gray-500">加载评论失败，请稍后重试。</p>';
+      commentsContainer.innerHTML =
+        '<p class="text-center text-gray-500">加载评论失败，请稍后重试。</p>';
       return;
     }
 
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.src = cdnUrls[currentCDNIndex];
     script.async = true;
-    script.crossOrigin = 'anonymous';
-    
+    script.crossOrigin = "anonymous";
+
     script.onload = () => {
       twikoo.init({
         envId: envId,
-        el: '#tcomment',
+        el: "#tcomment",
         lang: lang,
         path: window.location.pathname,
       });
       twikooLoaded = true;
       hideLoading();
     };
-    
+
     script.onerror = () => {
       // 当前 CDN 加载失败，尝试下一个
       currentCDNIndex++;
       loadTwikooWithCDN();
     };
-    
+
     document.body.appendChild(script);
   }
 
@@ -89,7 +93,7 @@ const isVercel = envId.startsWith('http');
   }
 
   function setupLazyLoad() {
-    const container = document.getElementById('tcomment-container');
+    const container = document.getElementById("tcomment-container");
     if (!container) return;
 
     observer = new IntersectionObserver(
@@ -102,19 +106,19 @@ const isVercel = envId.startsWith('http');
         });
       },
       {
-        rootMargin: '200px',
+        rootMargin: "200px",
         threshold: 0.1,
-      }
+      },
     );
 
     observer.observe(container);
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     setupLazyLoad();
   });
 
-  document.addEventListener('astro:after-swap', () => {
+  document.addEventListener("astro:after-swap", () => {
     twikooLoaded = false;
     currentCDNIndex = 0;
     if (observer) observer.disconnect();
@@ -123,7 +127,7 @@ const isVercel = envId.startsWith('http');
     }, 100);
   });
 
-  document.addEventListener('astro:page-load', () => {
+  document.addEventListener("astro:page-load", () => {
     twikooLoaded = false;
     currentCDNIndex = 0;
     if (observer) observer.disconnect();
@@ -131,6 +135,11 @@ const isVercel = envId.startsWith('http');
       setupLazyLoad();
     }, 100);
   });
+
+  // 兜底：DOM 已就绪时直接初始化（避免 SPA 导航时事件已错过）
+  if (document.readyState !== "loading") {
+    setupLazyLoad();
+  }
 </script>
 
 <style>

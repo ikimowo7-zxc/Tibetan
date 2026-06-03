@@ -173,7 +173,7 @@ user:
         svg: ri:telegram-line
 comments:
   enable: true
-  type: waline
+  type: twikoo
   giscus:
     repo: kobaridev/gsc
     repoId: R_kgDOPTM-mA

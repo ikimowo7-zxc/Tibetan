@@ -1,12 +1,20 @@
 {
     "songs": [
         {
-            "title": "小幸运",
-            "artist": "田馥甄的小迷妹",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172646576953",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=3343236872&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3343236872&format=lrc&trans=true",
-            "duration": "04:23"
+            "title": "小半",
+            "artist": "陈粒",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=1371091013186741",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=421423806&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=421423806&format=lrc&trans=true",
+            "duration": "04:57"
+        },
+        {
+            "title": "走马",
+            "artist": "陈粒",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=7721870161993398",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=30431367&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=30431367&format=lrc&trans=true",
+            "duration": "03:55"
         },
         {
             "title": "后来的我们",
@@ -167,14 +175,6 @@
             "url": "https://163.hyc.moe?server=netease&type=url&id=2083785152&br=320",
             "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2083785152&format=lrc&trans=true",
             "duration": "04:13"
-        },
-        {
-            "title": "小半",
-            "artist": "陈粒",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=1371091013186741",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=421423806&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=421423806&format=lrc&trans=true",
-            "duration": "04:57"
         },
         {
             "title": "老人と海",
@@ -1226,12 +1226,20 @@
     "playlistSongs": {
         "17933567326": [
             {
-                "title": "小幸运",
-                "artist": "田馥甄的小迷妹",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172646576953",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=3343236872&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3343236872&format=lrc&trans=true",
-                "duration": "04:23"
+                "title": "小半",
+                "artist": "陈粒",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=1371091013186741",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=421423806&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=421423806&format=lrc&trans=true",
+                "duration": "04:57"
+            },
+            {
+                "title": "走马",
+                "artist": "陈粒",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=7721870161993398",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=30431367&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=30431367&format=lrc&trans=true",
+                "duration": "03:55"
             },
             {
                 "title": "后来的我们",
@@ -1392,14 +1400,6 @@
                 "url": "https://163.hyc.moe?server=netease&type=url&id=2083785152&br=320",
                 "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2083785152&format=lrc&trans=true",
                 "duration": "04:13"
-            },
-            {
-                "title": "小半",
-                "artist": "陈粒",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=1371091013186741",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=421423806&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=421423806&format=lrc&trans=true",
-                "duration": "04:57"
             },
             {
                 "title": "老人と海",
@@ -2457,6 +2457,6 @@
             }
         ]
     },
-    "_urlFingerprint": "0035841b4aa1170e9ce0e26aabedf4f2e4ed33ff78cfc857eef00951e00ba868",
+    "_urlFingerprint": "a18b7f45a9cf0c934070997c29a574801412b33fb61e79c6c455c992be4bfbcf",
     "_configFingerprint": "20cd319f088c66ad94629dcddd1dc675cdc4e23d105b8cb17c2b050eb41c4047"
 }

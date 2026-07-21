@@ -62,53 +62,53 @@ en:
     12: December
 zh:
   label:
-    pageviews: "浏览量"
-    visits: "访问数"
-    noTag: 未分配标签
-    tagCard: 标签
-    tagPage: 标签
-    totalTags: 标签总数
-    noCategory: 未分配分类
-    categoryCard: 分类
-    categoryPage: 分类
-    totalCategories: 分类总数
-    noPosts: 暂无文章
-    archivePage: 文章归档
-    totalPosts: 文章总数
-    link: "链接: "
-    prevPage: 上一页
-    nextPage: 下一页
+    pageviews: "瀏覽數"
+    visits: "訪問數"
+    noTag: 未分配標籤
+    tagCard: 標籤
+    tagPage: 標籤
+    totalTags: 標籤總數
+    noCategory: 未分配分類
+    categoryCard: 分類
+    categoryPage: 分類
+    totalCategories: 分類總數
+    noPosts: 暫無文章
+    archivePage: 文章歸點
+    totalPosts: 文章總數
+    link: "連接: "
+    prevPage: 上一頁
+    nextPage: 下一頁
     wordCount: 字
-    readTime: 分钟
+    readTime: 分鐘
     share: 分享
-    shareCard: 分享这篇博客
-    close: 关闭
+    shareCard: 分享這篇部落格
+    close: 關閉
     learnMore: 了解更多
-    allTags: 所有标签
-    allCategories: 所有分类
+    allTags: 所有標籤
+    allCategories: 所有分類
     post: 篇文章
     posts: 篇文章
-    tagDescription: 浏览此标签下的所有文章
-    categoryDescription: 浏览此分类下的所有文章
-    tagsPageDescription: 探索博客中使用的所有标签
-    categoriesPageDescription: 探索博客中可用的所有分类
-    archivesPageDescription: 按日期浏览文章
-    backToBlog: 返回博客
-    themeToggle: 主题切换
-    searchPage: 搜索
-    searchPageDescription: 搜索博客中的所有文章
-    search: 搜索
-    searchPlaceholder: 输入关键词搜索...
-    tableOfContents: 目录
-    noContents: 无可用标题
-    404title: 页面未找到
-    404description: 看起来您已经进入了未知领域。您查找的页面不存在或已被转移到另一个维度。
-    404backHome: 返回首页
-    404goBack: 返回上页
-    404youMightLike: 您可能对以下内容感兴趣
-    404exploreBlog: 浏览我们的博客
-    404browseArchives: 浏览归档
-    404searchContent: 搜索内容
+    tagDescription: 瀏覽此標籤下的所有文章
+    categoryDescription: 瀏覽此標籤下的所有文章
+    tagsPageDescription: 探索部落格中使用的所有標籤
+    categoriesPageDescription: 探索部落格中可用的所有分類
+    archivesPageDescription: 按日期瀏覽文章
+    backToBlog: 返回部落格
+    themeToggle: 主題切換
+    searchPage: 搜尋
+    searchPageDescription: 搜索部落格中的所有文章
+    search: 搜尋
+    searchPlaceholder: 輸入關鍵字搜尋...
+    tableOfContents: 目錄
+    noContents: 無可用標題
+    404title: 頁面未找到
+    404description: 看起來您已經進入了未知領域。您尋找的頁面不存在或已轉移到另一個維度。
+    404backHome: 回首頁
+    404goBack: 回上頁
+    404youMightLike: 您可能對以下內容感興趣
+    404exploreBlog: 瀏覽我們的部落格
+    404browseArchives: 瀏覽歸檔
+    404searchContent: 搜尋內容
   months:
     1: 一月
     2: 二月

@@ -1,0 +1,189 @@
+site:
+  tab: 藏墨
+  title: 藏墨
+  title_type: image
+  description: 🌸 用文字與圖片記錄生活與創意
+  language: zh-TW
+  favicon: /favicon.ico
+  theme:
+    light: garden
+    dark: dracula
+    code: snazzy-light
+  date_format: ddd MMM DD YYYY
+  blog:
+    pageSize: 8
+  banner:
+    enableRandom: true
+    randomUrl: https://t.alcy.cc/ycy
+    randomCount: 5
+    height: 70vh
+    images:
+      - https://tc.alcy.cc/q/20250908/b2d656670551cb9ea6eda7b46b6c8ec0.webp
+  icp: 萌ICP备20261117号
+  icp_link: https://icp.gov.moe/?keyword=20261117
+  pages:
+    home:
+      title: Tibetan Blog
+      subtitle: 欲買桂花同載酒，終不似，少年遊！
+      typewriterTexts:
+        - 🌸 欲買桂花同載酒，終不似，少年遊！
+        - 🌸 花有重開日，人無再少年！
+        - 🌿 記錄生活的點滴，分享美好的瞬間！
+        - 📚 紙上得來終覺淺，絕知此事要躬行！
+    friend:
+      title: 友人帳
+      subtitle: 記錄那些珍貴的友誼，分享彼此的故事
+    about:
+      title: 關於我
+      subtitle: 一個熱愛生活與技術的普通人！
+    navigation:
+      title: 網站導航
+      subtitle: 收藏的常用網站和工具連結
+    anime:
+      title: 追番
+      subtitle: 記錄和分享我喜歡的動漫作品
+    project:
+      title: 專案
+      subtitle: 展示一些個人搭建的專案，搬運工！
+    album:
+      title: 相簿
+      subtitle: 記錄生活中的美好瞬間，分享我的照片故事
+    music:
+      title: 雲端音樂
+      subtitle: 沉浸式享受音樂時光
+  meting:
+    server: netease
+    id: '17933567326'
+    br: '400'
+    trans: true
+  menu:
+    - id: write
+      text: 寫作
+      href: /write
+      svg: material-symbols:edit-square-outline-rounded
+      target: _self
+    - id: navigation
+      text: 導航
+      href: /navigation
+      svg: material-symbols:explore-outline
+      target: _self
+    - id: anime
+      text: 追番
+      href: /anime
+      svg: material-symbols:movie-outline
+      target: _self
+    - id: album
+      text: 相簿
+      href: /album
+      svg: material-symbols:photo-library-outline-rounded
+      target: _self
+    - id: music
+      text: 音樂
+      href: /music
+      svg: material-symbols:music-note-rounded
+      target: _self
+    - id: project
+      text: 專案
+      href: /project
+      svg: material-symbols:code-blocks-outline
+      target: _self
+    - id: friend
+      text: 友人帳
+      href: /friend
+      svg: material-symbols:supervisor-account-outline-rounded
+      target: _self
+  titleType: image
+anime:
+  bilibili:
+    uid: '1536411565'
+  tmdb:
+    apiKey: 08a6bef260044f70c150251c79f2e476
+    listId: '8556173'
+music:
+  playlists:
+    - id: '17933567326'
+      name: 我的喜歡
+      server: netease
+    - id: zhoujielun
+      name: 周杰倫
+      server: netease
+      type: custom
+    - id: '17966019560'
+      name: 告五人
+      server: netease
+github:
+  owner: kobaridev
+  repo: RyuChan
+  branch: main
+  appId: 2409511
+  encryptKey: KoBariDevYa
+umami:
+  enable: true
+  baseUrl: https://umami.131714.xyz
+  shareId: jToXL5Z3hnA1gKUw
+  websiteId: 3f9afc6c-f0bd-4734-be15-6d053960d34d
+  timezone: Asia/Shanghai
+user:
+  name: KoBariDev
+  description: Ciallo～(∠・ω<)⌒★
+  site: https://hub.131714.xyz
+  avatar: /profile.png
+  title_image: /logo.png
+  qr_wechat: /WeChat.jpg
+  qr_alipay: /Alipay.jpg
+  sidebar:
+    social:
+      - href: https://github.com/kobaridev
+        ariaLabel: Github
+        title: Github
+        svg: ri:github-line
+      - href: https://space.bilibili.com/1536411565
+        ariaLabel: BiliBili
+        title: BiliBili
+        svg: ri:bilibili-line
+      - href: >-
+          https://www.douyin.com/user/MS4wLjABAAAAeO0sqJYUgh1a26GkVPtS2yv_IOODjeqvtl4KSjvsntg?from_tab_name=main
+        ariaLabel: Douyin
+        title: Douyin
+        svg: ri:tiktok-line
+      - href: https://weibo.com/u/7579913510
+        title: Weibo
+        ariaLabel: Weibo
+        svg: ri:weibo-fill
+  footer:
+    social:
+      - href: https://github.com/kobaridev
+        ariaLabel: Github
+        title: Github
+        svg: ri:github-line
+      - href: https://space.bilibili.com/1536411565
+        ariaLabel: BiliBili
+        title: BiliBili
+        svg: ri:bilibili-line
+      - href: https://x.com/xzz_ya
+        ariaLabel: X(twitter)
+        title: X(twitter)
+        svg: ri:twitter-line
+      - href: https://t.me/xzz_ya
+        ariaLabel: Telegram
+        title: Telegram
+        svg: ri:telegram-line
+comments:
+  enable: true
+  type: twikoo
+  giscus:
+    repo: kobaridev/gsc
+    repoId: R_kgDOPTM-mA
+    category: General
+    categoryId: DIC_kwDOPTM-mM4CtcFq
+    mapping: pathname
+    lang: zh-TW
+    inputPosition: top
+    reactionsEnabled: '1'
+    emitMetadata: '0'
+    loading: lazy
+  waline:
+    serverURL: https://waline.131714.xyz
+    lang: zh-TW
+  twikoo:
+    envId: https://twikoo.131714.xyz/
